@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('project', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('user');
+            $table->foreignId('rapper_id')->constrained('rapper');
             $table->foreignId('status_id')->constrained('status');
             $table->timestamps();
             $table->engine='InnoDB';

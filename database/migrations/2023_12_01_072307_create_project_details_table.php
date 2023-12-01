@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('project_id')->constrained('project');
             $table->foreignId('beat_id')->constrained('beat'); 
             $table->text('lyric');
-            $table->('recording')     
+            $table->text('recording');     
             $table->timestamps();
         });
     }
