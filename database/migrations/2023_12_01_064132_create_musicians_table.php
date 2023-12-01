@@ -6,25 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('typebeat', function (Blueprint $table) {
+        Schema::create('musician', function (Blueprint $table) {
             $table->id();
-            $table->string('typename');
-            $table->string('typename_slug');
+            $table->string('stagename');
+            $table->string('stagename_slug');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            $table->engine ='InnoDB';
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('typebeat');
+        Schema::dropIfExists('musician');
     }
 };
