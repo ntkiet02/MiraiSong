@@ -25,7 +25,8 @@ class TypeBeatController extends Controller
         $orm->save();
 
         return redirect()->route('typebeat');
-    }    public function getUpdate($id)
+    }   
+    public function getUpdate($id)
     {
         $typebeat = TypeBeat::find($id);
         return view('typebeat.update', compact('typebeat'));

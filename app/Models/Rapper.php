@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class Rapper extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -32,6 +32,9 @@ class Rapper extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+    public function Project() : HasMany
+    {
+        return $this->hasMany(Project:: class, 'rapper_id', 'id');
+    }
 }
