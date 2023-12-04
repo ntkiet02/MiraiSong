@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="card">
-    <div class="card-header">Edit Type Beat</div>
+    <div class="card-header">Edit Musician</div>
     <div class="card-body">
-        <form action="{{ route('typebeat.update', ['id' => $typebeat->id]) }}" method="post">
+        <form action="{{ route('musician.update', ['id' => $musician->id]) }}" method="post">
             @csrf
             <div class="mb-3">
-                <label class="form-label" for="typename">Type name</label>
-                <input type="text" class="form-control" id="typename" name="typename" value="{{ $typebeat->typename }}"
+                <label class="form-label" for="stagename">Stage name</label>
+                <input type="text" class="form-control" id="stagename" name="stagename" value="{{ $musician->stagename }}"
                     required />
             </div>
 

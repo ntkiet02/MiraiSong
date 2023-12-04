@@ -20,7 +20,6 @@ class StatusController extends Controller
   {
       $orm = new Status();
       $orm->statusname = $request->statusname;
-      $orm->statusname_slug = Str::slug($request->statusname, '-');
       $orm->save();
       return redirect()->route('status');
   }
@@ -33,7 +32,6 @@ class StatusController extends Controller
   {
       $orm = Status::find($id);
       $orm->statusname = $request->statusname;
-      $orm->statusname_slug = Str::slug($request->statusname, '-');
       $orm->save();
       
       return redirect()->route('status');

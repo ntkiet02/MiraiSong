@@ -9,7 +9,7 @@ class MusicianController extends Controller
 {
     public function getList()
     {
-        $musican = Musician::all();
+        $musician = Musician::all();
         return view('musician.list', compact('musician'));
     }
     public function getAdd()
@@ -33,7 +33,7 @@ class MusicianController extends Controller
     {
         $orm = Musician::find($id);
         $orm->stagename = $request->stagename;
-        $orm->stagebeat_slug = Str::slug($request->stagename, '-');
+        $orm->stagename_slug = Str::slug($request->stagename, '-');
         $orm->save();   
         return redirect()->route('musician');
     }
