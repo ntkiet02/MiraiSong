@@ -14,7 +14,6 @@ return new class extends Migration
             $table->foreignId('musician_id')->constrained('musician');
             $table->string('beatname');
             $table->string('beatname_slug');
-            $table->integer('time');
             $table->text('file_path');
             $table->timestamps();
             $table->engine='InnoDB';

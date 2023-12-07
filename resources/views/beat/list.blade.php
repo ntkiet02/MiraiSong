@@ -12,8 +12,9 @@
                     <th width ="5%">Type Beat</th>
                     <th width ="5%">Musician</th>
                     <th width ="5%">Beat Name</th>
-                    <th width ="5%">Time</th>
-                    <th width ="5%">File Path</th>                    
+                    <th width ="5%">File Path</th>   
+                    <th width ="5%">Edit</th>
+                    <th width ="5%">Delete</th>                 
                 </tr>
             </thead>
             <tbody>
@@ -22,10 +23,13 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$value->TypeBeat->typename}}</td>
                     <td>{{$value->Musician->stagename}}</td>
-                    <td>{{$value->beatname}}</td>
-                    <td>{{$value->time}}</td>
-                    
-                    <td><audio src ="{{ env('APP_URL') . '/storage/app/' . $value->beatname_slug }}.mp3" type="audio/mp3" controls>  </audio></td>
+                    <td>{{$value->beatname}}</td>    
+                    <td><audio src ="{{ env('APP_URL') . '/storage/app/' . $value->file_path }}" type="audio/mp3" controls>  </audio></td>
+                    <td class="text-center"><a href="{{ route('beat.update', ['id' => $value->id]) }}"><i
+                                class="fa-light fa-edit"></i>Edit</a></td>
+                    <td class="text-center"><a href="{{ route('beat.delete', ['id' => $value->id]) }}"
+                            onclick="return confirm('Bạn có muốn xóa cái {{ $value->stagename }} không?')"><i
+                                class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

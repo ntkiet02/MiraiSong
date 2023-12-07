@@ -40,15 +40,7 @@
                 <div class="invalid-feedback"><strong>{{ $message }}</strong></div>
                 @enderror
             </div>
-
-            <div class="mb-3">
-                <label class="form-label" for="time">Time</label>
-                <input type="number" min="0" class="form-control @error('time') is-invalid @enderror" id="time"
-                    name="time" value="{{ old('time') }}" required />
-                @error('time')
-                <div class="invalid-feedback"><strong>{{ $message }}</strong></div>
-                @enderror
-            </div>
+           
             <div class="mb-3">
                 <label class="form-label" for="file_path">Audio</label>
                 <input type="file" class="form-control @error('file_path') is-invalid @enderror" id="file_path"

@@ -23,13 +23,20 @@ class BeatController extends Controller
     }
     public function postAdd(Request $request)
     {
+        $path='';
+        if($request->hasFile('file_path'))
+        {
+            $extension = $request->file('file_path')->extension();
+            $filename = Str::slug($request->beatname, '-') . '.' . $extension;
+            $path = Storage::putFileAs('Musician', $request->file('file_path'), $filename);
+        }
         $orm = new Beat();
         $orm->typebeat_id=$request->typebeat_id;
         $orm->musician_id=$request->musician_id;
         $orm->beatname = $request->beatname;
-        $orm->beatname_slug = Str::slug($request->beatname, '-');
-        $orm->time = $request->time;
-        $orm->file_path=Storage::putFile($request->file_path);
+        $orm->beatname_slug = Str::slug($request->beatname, '-');     
+        if(!empty($path))
+            $orm->file_path=$path;
         $orm->save();
         return redirect()->route('beat');
     }
@@ -42,22 +49,31 @@ class BeatController extends Controller
     }
     public function postUpdate(Request $request, $id)
     {
-           
-        
+        $path='';
+        if($request->hasFile('file_path'))
+        {
+            $sp=Beat::find($id);
+            if(!empty($sp->hinhanh)) Storage::delete($sp->file_path);
+
+            $extension = $request->file('file_path')->extension();
+            $filename = Str::slug($request->beatname, '-') . '.' . $extension;
+            $lsp= TypeBeat::find($request->typebeat_id);
+
+            $path = Storage::putFileAs($lsp->typename_slug, $request->file('file_path'), $filename);
+        }
+                
         $orm = Beat::find($id);
         $orm->typebeat_id=$request->typebeat_id;
         $orm->musician_id=$request->musician_id;
         $orm->beatname = $request->beatname;
         $orm->beatname_slug = Str::slug($request->beatname, '-');
-        $orm->time = $request->time;
-    
-        $orm->file_path=$request->file_path;
+        if(!empty($path))
+            $orm->file_path=$path;
         $orm->save();
         return redirect()->route('beat');
     }
     public function getDelete($id)
     {
-    
         $orm = Beat::find($id);
         if(!empty($orm->file_path)) Storage::delete($orm->file_path);
         $orm->delete();
