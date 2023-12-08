@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Edit Musician</div>
     <div class="card-body">
-        <form action="{{ route('musician.update', ['id' => $musician->id]) }}" method="post">
+        <form action="{{ route('musician.update', ['id' => $musician->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label class="form-label" for="stagename">Stage name</label>

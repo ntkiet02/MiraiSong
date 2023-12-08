@@ -41,7 +41,7 @@ class RapperController extends Controller
 
     public function getUpdate($id)
     {
-        $nguoidung = Rapper::find($id);
+        $rapper = Rapper::find($id);
         return view('rapper.update', compact('rapper'));
     }
 
@@ -68,7 +68,7 @@ class RapperController extends Controller
         return redirect()->route('rapper');
     }
 
-    public function getXoa($id)
+    public function getDelete($id)
     {
         $orm = Rapper::find($id);
         $orm->delete();

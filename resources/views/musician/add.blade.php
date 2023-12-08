@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Add new Musician</div>
     <div class="card-body">
-        <form action="{{ route('musician.add') }}" method="post">
+        <form action="{{ route('musician.add') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label class="form-label" for="stagename">Stage Name</label>
