@@ -11,7 +11,7 @@ class ProjectController extends Controller
     public function getList()
 	{
 		$project = Project::orderBy('created_at', 'desc')->get();
-		return view('project.list', compact('project'));
+		return view('admin.project.list', compact('project'));
 	}
 	
 	public function getAdd()
@@ -28,7 +28,7 @@ class ProjectController extends Controller
 	{
 		$project = Project::find($id);
 		$status = Status::all();
-		return view('project.update', compact('project', 'status'));
+		return view('admin.project.update', compact('project', 'status'));
 	}
 	
 	public function postUpdate(Request $request, $id)
@@ -37,7 +37,7 @@ class ProjectController extends Controller
 		$orm->status_id = $request->status_id;
 		$orm->save();
 		// Sau khi sửa thành công thì tự động chuyển về trang danh sách
-		return redirect()->route('project');
+		return redirect()->route('admin.project');
 	}
 	
 	public function getDelete($id)
@@ -46,6 +46,6 @@ class ProjectController extends Controller
 		$orm->delete();
 		$detail = ProjectDetail::where('project_id', $orm->id)->delete();
         // Sau khi xóa thành công thì tự động chuyển về trang danh sách
-		return redirect()->route('project');
+		return redirect()->route('admin.project');
 	}
 }

@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Rapper</div>
     <div class="card-body table-responsive">
-        <p><a href="{{ route('rapper.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
+        <p><a href="{{ route('admin.rapper.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
         </p>
         <table class="table table-bordered table-hover table-sm mb-0">
             <thead>
@@ -25,9 +25,9 @@
                     <td>{{ $value->username }}</td>
                     <td>{{ $value->email }}</td>
                     <td>{{ $value->role }}</td>
-                    <td class="text-center"><a href="{{ route('rapper.update', ['id' => $value->id]) }}"><i
+                    <td class="text-center"><a href="{{ route('admin.rapper.update', ['id' => $value->id]) }}"><i
                                 class="fa-light fa-edit"></i>Edit</a></td>
-                    <td class="text-center"><a href="{{ route('rapper.delete', ['id' => $value->id]) }}"
+                    <td class="text-center"><a href="{{ route('admin.rapper.delete', ['id' => $value->id]) }}"
                             onclick="return confirm('Bạn có muốn xóa thằng {{ $value->name }} không?')"><i
                                 class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
                 </tr>

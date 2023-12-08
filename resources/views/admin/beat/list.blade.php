@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Status</div>
     <div class="card-body table-responsive">
-        <p><a href="{{ route('beat.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
+        <p><a href="{{ route('admin.beat.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
         </p>
         <table class="table table-bordered table-hover table-sm mb-0">
             <thead>
@@ -25,9 +25,9 @@
                     <td>{{$value->Musician->stagename}}</td>
                     <td>{{$value->beatname}}</td>    
                     <td><audio src ="{{ env('APP_URL') . '/storage/app/' . $value->file_path }}" type="audio/mp3" controls>  </audio></td>
-                    <td class="text-center"><a href="{{ route('beat.update', ['id' => $value->id]) }}"><i
+                    <td class="text-center"><a href="{{ route('admin.beat.update', ['id' => $value->id]) }}"><i
                                 class="fa-light fa-edit"></i>Edit</a></td>
-                    <td class="text-center"><a href="{{ route('beat.delete', ['id' => $value->id]) }}"
+                    <td class="text-center"><a href="{{ route('admin.beat.delete', ['id' => $value->id]) }}"
                             onclick="return confirm('Bạn có muốn xóa cái {{ $value->stagename }} không?')"><i
                                 class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
                 </tr>

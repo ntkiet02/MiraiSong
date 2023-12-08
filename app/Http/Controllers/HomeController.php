@@ -24,6 +24,18 @@ class HomeController extends Controller
      */
     public function getHome()
     {
-        return view('home');
+        return view('frontend.home');
     }
+    public function getBeat($typename_slug='')
+    {
+        return view('frontend.beat');
+    }
+    public function getRegister()
+    {
+        return view('user.register');
+    }public function getLogin()
+    {
+        return view('user.login');
+    }
+
 }

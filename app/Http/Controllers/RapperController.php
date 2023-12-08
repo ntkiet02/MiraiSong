@@ -11,11 +11,11 @@ class RapperController extends Controller
     public function getList()
     {
         $rapper = Rapper::all();
-        return view('rapper.list', compact('rapper'));
+        return view('admin.rapper.list', compact('rapper'));
     }
     public function getAdd()
     {
-        return view('rapper.add');
+        return view('admin.rapper.add');
     }
     public function postAdd(Request $request)
     {
@@ -36,13 +36,13 @@ class RapperController extends Controller
         $orm->save();
 
         // Sau khi thêm thành công thì tự động chuyển về trang danh sách
-        return redirect()->route('rapper');
+        return redirect()->route('admin.rapper');
     }
 
     public function getUpdate($id)
     {
         $rapper = Rapper::find($id);
-        return view('rapper.update', compact('rapper'));
+        return view('admin.rapper.update', compact('rapper'));
     }
 
     public function postUpdate(Request $request, $id)
@@ -65,7 +65,7 @@ class RapperController extends Controller
         $orm->save();
 
         // Sau khi sửa thành công thì tự động chuyển về trang danh sách
-        return redirect()->route('rapper');
+        return redirect()->route('admin.rapper');
     }
 
     public function getDelete($id)
@@ -74,7 +74,7 @@ class RapperController extends Controller
         $orm->delete();
 
         // Sau khi xóa thành công thì tự động chuyển về trang danh sách
-        return redirect()->route('rapper');
+        return redirect()->route('admin.rapper');
     }
 
 }

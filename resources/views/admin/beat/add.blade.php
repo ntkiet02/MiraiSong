@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Add new Beat</div>
     <div class="card-body">
-        <form action="{{ route('beat.add') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.beat.add') }}" method="post" enctype="multipart/form-data">
             @csrf
             
             <div class="mb-3">

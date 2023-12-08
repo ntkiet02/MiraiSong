@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Project</div>
     <div class="card-body table-responsive">
-        <p><a href="{{ route('project.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
+        <p><a href="{{ route('admin.project.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
         </p>
         <table class="table table-bordered table-hover table-sm mb-0">
             <thead>
@@ -43,9 +43,9 @@
                     </td>
                     <td>{{$value->created_at->fomat('d/m/Y H:i:s')}}</td>
                     <td>{{$value->Status->statusname}}</td>
-                    <td class="text-center"><a href="{{ route('musician.update', ['id' => $value->id]) }}"><i
+                    <td class="text-center"><a href="{{ route('admin.project.update', ['id' => $value->id]) }}"><i
                                 class="fa-light fa-edit"></i>Edit</a></td>
-                    <td class="text-center"><a href="{{ route('musician.delete', ['id' => $value->id]) }}"
+                    <td class="text-center"><a href="{{ route('admin.project.delete', ['id' => $value->id]) }}"
                             onclick="return confirm('Bạn có muốn xóa cái {{ $value->stagename }} không?')"><i
                                 class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
                 </tr>

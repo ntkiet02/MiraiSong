@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">Edit Rapper</div>
     <div class="card-body">
-        <form action="{{ route('rapper.update',['id'=>$rapper->id]) }}" method="post" enctype="multipart/form-data" >
+        <form action="{{ route('admin.rapper.update',['id'=>$rapper->id]) }}" method="post" enctype="multipart/form-data" >
             @csrf
             <div class="mb-3">
                 <label class="form-label" for="name"> Rapname </label>

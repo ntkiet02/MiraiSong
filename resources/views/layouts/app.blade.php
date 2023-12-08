@@ -20,10 +20,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('admin.home') }}">
+                    <i class="fa-light fa-cart-shopping"></i>{{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -35,26 +35,26 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('typebeat') }}"><i
+                            <a class="nav-link" href="{{ route('admin.typebeat') }}"><i
                                     class="fa-light fa-fw fa-diagram-project"></i> Type beat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('musician') }}"><i
+                            <a class="nav-link" href="{{ route('admin.musician') }}"><i
                                     class="fa-light fa-fw fa-copyright"></i> Musican</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('beat') }}"><i class="fa-light fa-fw fa-box"></i>Beat</a>
+                            <a class="nav-link" href="{{ route('admin.beat') }}"><i class="fa-light fa-fw fa-box"></i>Beat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('status') }}"><i
+                            <a class="nav-link" href="{{ route('admin.status') }}"><i
                                     class="fa-light fa-fw fa-list-check"></i> Status</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('project') }}"><i
+                            <a class="nav-link" href="{{ route('admin.project') }}"><i
                                     class="fa-light fa-fw fa-file-invoice"></i>Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('rapper') }}"><i class="fa-light fa-fw fa-users"></i>Rapper</a>
+                            <a class="nav-link" href="{{ route('admin.rapper') }}"><i class="fa-light fa-fw fa-users"></i>Rapper</a>
                         </li>
                     </ul>
 

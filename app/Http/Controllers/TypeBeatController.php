@@ -11,11 +11,11 @@ class TypeBeatController extends Controller
     public function getList()
     {
         $typebeat = TypeBeat::all();
-        return view('typebeat.list', compact('typebeat'));
+        return view('admin.typebeat.list', compact('typebeat'));
     }
     public function getAdd()
     {
-        return view('typebeat.add');
+        return view('admin.typebeat.add');
     }  
     public function postAdd(Request $request)
     {
@@ -23,13 +23,12 @@ class TypeBeatController extends Controller
         $orm->typename = $request->typename;
         $orm->typename_slug = Str::slug($request->typename, '-');
         $orm->save();
-
-        return redirect()->route('typebeat');
+        return redirect()->route('admin.typebeat');
     }   
     public function getUpdate($id)
     {
         $typebeat = TypeBeat::find($id);
-        return view('typebeat.update', compact('typebeat'));
+        return view('admin.typebeat.update', compact('typebeat'));
     }
     public function postUpdate(Request $request, $id)
     {
@@ -38,12 +37,12 @@ class TypeBeatController extends Controller
         $orm->typename_slug = Str::slug($request->typename, '-');
         $orm->save();
         
-        return redirect()->route('typebeat');
+        return redirect()->route('admin.typebeat');
     }  
     public function getDelete($id)
     {
         $orm = TypeBeat::find($id);
         $orm->delete();
-        return redirect()->route('typebeat');
+        return redirect()->route('admin.typebeat');
     }
 }

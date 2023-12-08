@@ -13,13 +13,13 @@ class BeatController extends Controller
     public function getList()
     {
         $beat = Beat::all();
-        return view('beat.list', compact('beat'));
+        return view('admin.beat.list', compact('beat'));
     }
     public function getAdd()
     {
         $typebeat= TypeBeat::all();
         $musician=Musician::all();
-        return view('beat.add', compact('typebeat','musician'));
+        return view('admin.beat.add', compact('typebeat','musician'));
     }
     public function postAdd(Request $request)
     {
@@ -38,14 +38,14 @@ class BeatController extends Controller
         if(!empty($path))
             $orm->file_path=$path;
         $orm->save();
-        return redirect()->route('beat');
+        return redirect()->route('admin.beat');
     }
     public function getUpdate($id)
     {
         $beat = Beat::find($id);
         $typebeat = TypeBeat::all();
         $musician =Musician::all();
-        return view('beat.update', compact('beat','typebeat','musician'));
+        return view('admin.beat.update', compact('beat','typebeat','musician'));
     }
     public function postUpdate(Request $request, $id)
     {
@@ -70,13 +70,13 @@ class BeatController extends Controller
         if(!empty($path))
             $orm->file_path=$path;
         $orm->save();
-        return redirect()->route('beat');
+        return redirect()->route('admin.beat');
     }
     public function getDelete($id)
     {
         $orm = Beat::find($id);
         if(!empty($orm->file_path)) Storage::delete($orm->file_path);
         $orm->delete();
-        return redirect()->route('beat');
+        return redirect()->route('admin.beat');
     }
 }
