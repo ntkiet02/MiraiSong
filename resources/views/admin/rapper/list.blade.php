@@ -9,10 +9,12 @@
             <thead>
                 <tr>
                     <th width="5%">#</th>
-                    <th width="45%">Rapper</th>
-                    <th width="40%">Username</th>
-                    <th width="40%">Email</th>
-                    <th width="40%">Role</th>
+                    <th width="20%">Image</th>
+                    <th width="15%">Rapper</th>
+                    <th width="15%">Username</th>
+                    <th width="40%">Information</th>
+                    <th width="20%">Email</th>
+                    <th width="5%">Role</th>
                     <th width="5%">Update</th>
                     <th width="5%">Delete</th>
                 </tr>
@@ -21,8 +23,10 @@
                 @foreach($rapper as $value)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td class="text-center"><img src="{{ env('APP_URL') . '/storage/app/'.$value->image_rapper}}" width="100" class="img-thumbnail" /> </td>
                     <td>{{ $value->name }}</td>
                     <td>{{ $value->username }}</td>
+                    <td>{{ $value->information}}</td>
                     <td>{{ $value->email }}</td>
                     <td>{{ $value->role }}</td>
                     <td class="text-center"><a href="{{ route('admin.rapper.update', ['id' => $value->id]) }}"><i

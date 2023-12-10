@@ -6,6 +6,7 @@ use App\Models\Rapper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 class RapperController extends Controller
 {
     public function getList()
@@ -26,13 +27,22 @@ class RapperController extends Controller
             'role' => ['required'],
             'password' => ['required', 'min:4', 'confirmed'],
         ]);
-
+        $path='';
+        if($request->hasFile('image_rapper'))
+        {
+            $extension = $request->file('image_rapper')->extension();
+            $filename = Str::slug($request->beatname, '-') . '.' . $extension;
+            $path = Storage::putFileAs('Rapper', $request->file('image_rapper'), $filename);
+        }
         $orm = new Rapper();
         $orm->name = $request->name;
         $orm->username = Str::before($request->email, '@');
         $orm->email = $request->email;
         $orm->password = Hash::make($request->password);
         $orm->role = $request->role;
+        if(!empty($path))
+            $orm->image_rapper=$path;
+        $orm->information=$request->infomation;
         $orm->save();
 
         // Sau khi thêm thành công thì tự động chuyển về trang danh sách
@@ -54,7 +64,13 @@ class RapperController extends Controller
             'role' => ['required'],
             'password' => ['confirmed'],
         ]);
-
+        $path='';
+        if($request->hasFile('image_rapper'))
+        {
+            $extension = $request->file('image_rapper')->extension();
+            $filename = Str::slug($request->beatname, '-') . '.' . $extension;
+            $path = Storage::putFileAs('Rapper', $request->file('image_rapper'), $filename);
+        }
         $orm = Rapper::find($request->id);
         $orm->name = $request->name;
         $orm->username = Str::before($request->email, '@');
@@ -62,6 +78,9 @@ class RapperController extends Controller
         $orm->role = $request->role;
         if (!empty($request->password))
             $orm->password = Hash::make($request->password);
+        if(!empty($path))
+            $orm->image_rapper=$path;
+        $orm->information=$request->infomation;
         $orm->save();
 
         // Sau khi sửa thành công thì tự động chuyển về trang danh sách

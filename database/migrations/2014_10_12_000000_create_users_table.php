@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('role')->default('rapper');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('image_rapper')->nullable();
+            $table->string('information')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->engine ='InnoDB';

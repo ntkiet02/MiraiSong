@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('beat_id')->constrained('beat'); 
             $table->text('lyric');
             $table->text('recording');     
+            $table->string('image_project')->nullable();
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('beatname');
             $table->string('beatname_slug');
             $table->text('file_path');
+            $table->string('image_beat')->nullable();
             $table->timestamps();
             $table->engine='InnoDB';
         });
