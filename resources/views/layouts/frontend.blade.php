@@ -14,15 +14,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />  
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css ')}}" type="text/css">
+    <!-- <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css ')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('public/ss/elegant-icons.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('public/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('public/css/magnific-popup.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('public/css/slicknav.min.css')}}" type="text/css">
-     <link rel="stylesheet" href="{{ asset('public/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('public/css/style.css')}}" type="text/css"> -->
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <main>
@@ -141,12 +150,21 @@
         </div>
     </footer>
     <!-- Js Plugins -->
-    <script src="{{ asset('public/js/jquery-3.3.1.min.js ')}}"></script>
+    <!-- <script src="{{ asset('public/js/jquery-3.3.1.min.js ')}}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js ')}}"></script>
     <script src="{{ asset('public/js/jquery.magnific-popup.min.js ')}}"></script>
     <script src="{{ asset('public/js/mixitup.min.js ')}}"></script>
     <script src="{{ asset('public/js/masonry.pkgd.min.js ')}}"></script>
     <script src="{{ asset('public/js/jquery.slicknav.js ')}}"></script>
     <script src="{{ asset('public/js/owl.carousel.min.js ')}}"></script>
-    <script src="{{ asset('public/js/main.js ')}}"></script>
+    <script src="{{ asset('public/js/main.js ')}}"></script> -->
+    <!-- Js Plugins -->
+    <script src="public/js/jquery-3.3.1.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/jquery.magnific-popup.min.js"></script>
+    <script src="public/js/mixitup.min.js"></script>
+    <script src="public/js/masonry.pkgd.min.js"></script>
+    <script src="public/js/jquery.slicknav.js"></script>
+    <script src="public/js/owl.carousel.min.js"></script>
+    <script src="public/js/main.js"></script>
 </body>
