@@ -11,7 +11,8 @@
                     <th width ="5%">#</th>
                     <th width ="5%">Type Beat</th>
                     <th width ="5%">Musician</th>
-                    <th width ="5%">Beat Name</th>
+                    <th width ="20%">Beat Name</th>
+                    <th width ="30%">Image</th>
                     <th width ="5%">File Path</th>   
                     <th width ="5%">Edit</th>
                     <th width ="5%">Delete</th>                 
@@ -23,7 +24,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$value->TypeBeat->typename}}</td>
                     <td>{{$value->Musician->stagename}}</td>
-                    <td>{{$value->beatname}}</td>    
+                    <td>{{$value->beatname}}</td>   
+                    <td class="text-center"><img src="{{ env('APP_URL') . '/storage/app/'.$value->image_beat}}" width="100" class="img-thumbnail" /> </td> 
                     <td><audio src ="{{ env('APP_URL') . '/storage/app/' . $value->file_path }}" type="audio/mp3" controls>  </audio></td>
                     <td class="text-center"><a href="{{ route('admin.beat.update', ['id' => $value->id]) }}"><i
                                 class="fa-light fa-edit"></i>Edit</a></td>

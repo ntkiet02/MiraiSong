@@ -5,7 +5,13 @@
     <div class="card-body">
         <form action="{{ route('admin.beat.add') }}" method="post" enctype="multipart/form-data">
             @csrf
-            
+            <div class="mb-3">
+                <label class="form-label" for="image_beat">Image</label>
+                <input type="file" class="form-control @error('image_beat') is-invalid @enderror"  id="image_beat" name="image_beat" required />
+                    @error('image_beat')
+                        <div class="invalid-feedback"> <strong >{{$message}}</strong> </div>
+                    @enderror
+            </div>
             <div class="mb-3">
                 <label class="form-label" for="typebeat_id">Type Beat</label>
                 <select class="form-select" id="typebeat_id" name="typebeat_id" required>

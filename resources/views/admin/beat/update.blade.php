@@ -3,8 +3,19 @@
     <div class ="card">
         <div class="card-header">Edit Beat</div>
             <div class="card-body">
-                <form action="{{ route('beat.update' , ['id'=>$beat->id])  }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.beat.update' , ['id'=>$beat->id])  }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="mb-3">
+                        <label class="form-label" for="image_beat">Image</label>
+                        @if(empty($beat->image_beat))
+                            <image class="d-block rounded img-thumbnail" src="{{env('APP_URL') . '/storage/app/'.$value->image_beat}}" width="100" ></image>
+                            <span class="d-block small text-danger">Bỏ trống nếu muốn giữ ảnh cũ.</span>
+                        @endif
+                        <input type="file" class="form-control @error('image_beat') is-invalid @enderror"  id="image_beat" name="image_beat" />
+                            @error('image_beat')
+                                <div class="invalid-feedback"> <strong >{{$message}}</strong> </div>
+                            @enderror
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="typebeat_id">Type Beat</label>
                         <select class="form-select @error('typebeat_id') is-invalid @enderror"  id="typebeat_id" name="typebeat_id" required>

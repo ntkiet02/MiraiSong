@@ -31,8 +31,8 @@ class RapperController extends Controller
         if($request->hasFile('image_rapper'))
         {
             $extension = $request->file('image_rapper')->extension();
-            $filename = Str::slug($request->beatname, '-') . '.' . $extension;
-            $path = Storage::putFileAs('Rapper', $request->file('image_rapper'), $filename);
+            $filename = Str::slug($request->name, '-') . '.' . $extension;
+            $path = Storage::putFileAs('Rapper_Image', $request->file('image_rapper'), $filename);
         }
         $orm = new Rapper();
         $orm->name = $request->name;

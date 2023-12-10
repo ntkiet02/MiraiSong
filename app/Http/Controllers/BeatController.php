@@ -28,7 +28,14 @@ class BeatController extends Controller
         {
             $extension = $request->file('file_path')->extension();
             $filename = Str::slug($request->beatname, '-') . '.' . $extension;
-            $path = Storage::putFileAs('Musician', $request->file('file_path'), $filename);
+            $path = Storage::putFileAs('Beat_MP3', $request->file('file_path'), $filename);
+        }
+        $path2='';
+        if($request->hasFile('image_beat'))
+        {
+            $extension2 = $request->file('image_beat')->extension();
+            $filename2 = Str::slug($request->beatname, '-') . '.' . $extension2;
+            $path2 = Storage::putFileAs('Beat_Image', $request->file('image_beat'), $filename2);
         }
         $orm = new Beat();
         $orm->typebeat_id=$request->typebeat_id;
@@ -37,6 +44,8 @@ class BeatController extends Controller
         $orm->beatname_slug = Str::slug($request->beatname, '-');     
         if(!empty($path))
             $orm->file_path=$path;
+        if(!empty($path2))
+            $orm->image_beat=$path2;
         $orm->save();
         return redirect()->route('admin.beat');
     }
@@ -53,15 +62,23 @@ class BeatController extends Controller
         if($request->hasFile('file_path'))
         {
             $sp=Beat::find($id);
-            if(!empty($sp->hinhanh)) Storage::delete($sp->file_path);
+            if(!empty($sp->file_path)) Storage::delete($sp->file_path);
 
             $extension = $request->file('file_path')->extension();
             $filename = Str::slug($request->beatname, '-') . '.' . $extension;
-            $lsp= TypeBeat::find($request->typebeat_id);
-
-            $path = Storage::putFileAs($lsp->typename_slug, $request->file('file_path'), $filename);
+            $path = Storage::putFileAs('Beat_MP3', $request->file('file_path'), $filename);
         }
-                
+        $path2='';
+        if($request->hasFile('image_beat'))
+        {
+            $sp2=Beat::find($id);
+            if(!empty($sp2->image_beat)) Storage::delete($sp2->image_beat);
+
+            $extension2 = $request->file('image_beat')->extension();
+            $filename2= Str::slug($request->beatname, '-') . '.' . $extension2;
+            $path2 = Storage::putFileAs('Beat_Image', $request->file('image_beat'), $filename2);
+        }
+              
         $orm = Beat::find($id);
         $orm->typebeat_id=$request->typebeat_id;
         $orm->musician_id=$request->musician_id;
@@ -69,6 +86,8 @@ class BeatController extends Controller
         $orm->beatname_slug = Str::slug($request->beatname, '-');
         if(!empty($path))
             $orm->file_path=$path;
+        if(!empty($path2))
+            $orm->image_beat=$path2;
         $orm->save();
         return redirect()->route('admin.beat');
     }
