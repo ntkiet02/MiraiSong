@@ -1,85 +1,96 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_','-', app()->getLocale() )}}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="description" content="Videograph Template"/>
-    <meta name="keywords" content="Videograph, unica, creative, html"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>@yield('title','Trang chủ') - {{ config('app.name','Laravel')}}</title>
-
+    <meta charset="UTF-8">
+    <meta name="description" content="Videograph Template">
+    <meta name="keywords" content="Videograph, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />  
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Css Styles -->
-    <!-- <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css ')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('public/ss/elegant-icons.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('public/css/owl.carousel.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('public/css/magnific-popup.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('public/css/slicknav.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('public/css/style.css')}}" type="text/css"> -->
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-    <main>
-     <!-- Header Section Begin -->
-        <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="header__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="header__nav__option">
-                            <nav class="header__nav__menu mobile-menu">
-                                <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
-                                    <li><a href="./about.html">About</a></li>
-                                    <li><a href="./portfolio.html">Portfolio</a></li>
-                                    <li><a href="./services.html">Services</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./about.html">About</a></li>
-                                            <li><a href="./portfolio.html">Portfolio</a></li>
-                                            <li><a href="./blog.html">Blog</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                            <div class="header__nav__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            </div>
-                        </div>
+    <!-- Page Preloder -->
+    <!-- Cái củ chuối này là hiển thị quay vòng vòng khi tải trang -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="#"><img src="resources/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div id="mobile-menu-wrap"></div>
+                <div class="col-lg-10">
+                    <div class="header__nav__option">
+                        <nav class="header__nav__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Portfolio</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Contact</a></li>
+                                @if (Route::has('login'))
+                                    @auth
+                                    <li><a href="{{ url('/home') }}">Home</a> </li>
+                                    @else
+                                    <li><a href="{{ route('login') }}">Log in</a> </li>
+                                        @if (Route::has('register'))
+                                    <li><a href="{{ route('register') }}">Register</a> </li>
+                                        @endif
+                                    @endauth
+                                </div>
+                            @endif
+                            </ul>
+                        </nav>
+                       
+                    </div>
+                </div>
             </div>
-        </header>
-        <!-- Header End -->
-        @yield('content')
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header> <!-- Header End -->
+    <main>
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+           <img src = "resources/img/Sakura.jpg"/>
+        </div>
+    </section>
+
+    @yield('content')
     </main>
-    
+    <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
             <div class="footer__top">
@@ -105,7 +116,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer__option__item">
                             <h5>About us</h5>
-                            <p>&copy; 2024 byTrí Kiệt and Ngọc Hân. MiraiSong là trang web siu cấp vip pro không được bất kỳ giải thưởng hay người dùng cũng như feedback nào. Huhu</p>
+                            <p>&copy; 2024 by Nguyễn Trí Kiệt and Bùi Thị Ngọc Hân. Raptome là trang web siu cấp vip pro không được bất kỳ giải thưởng hay người dùng cũng như feedback nào. Huhu</p>
                             <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
                         </div>
                     </div>
@@ -149,22 +160,17 @@
             </div>
         </div>
     </footer>
+    <!-- Footer Section End -->
+
     <!-- Js Plugins -->
-    <!-- <script src="{{ asset('public/js/jquery-3.3.1.min.js ')}}"></script>
-    <script src="{{ asset('public/js/bootstrap.min.js ')}}"></script>
-    <script src="{{ asset('public/js/jquery.magnific-popup.min.js ')}}"></script>
-    <script src="{{ asset('public/js/mixitup.min.js ')}}"></script>
-    <script src="{{ asset('public/js/masonry.pkgd.min.js ')}}"></script>
-    <script src="{{ asset('public/js/jquery.slicknav.js ')}}"></script>
-    <script src="{{ asset('public/js/owl.carousel.min.js ')}}"></script>
-    <script src="{{ asset('public/js/main.js ')}}"></script> -->
-    <!-- Js Plugins -->
-    <script src="public/js/jquery-3.3.1.min.js"></script>
-    <script src="public/js/bootstrap.min.js"></script>
-    <script src="public/js/jquery.magnific-popup.min.js"></script>
-    <script src="public/js/mixitup.min.js"></script>
-    <script src="public/js/masonry.pkgd.min.js"></script>
-    <script src="public/js/jquery.slicknav.js"></script>
-    <script src="public/js/owl.carousel.min.js"></script>
-    <script src="public/js/main.js"></script>
+    <script src="resources/js/jquery-3.3.1.min.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
+        <script src="resources/js/jquery.magnific-popup.min.js"></script>
+        <script src="resources/js/mixitup.min.js"></script>
+        <script src="resources/js/masonry.pkgd.min.js"></script>
+        <script src="resources/js/jquery.slicknav.js"></script>
+        <script src="resources/js/owl.carousel.min.js"></script>
+        <script src="resources/js/main.js"></script>
 </body>
+
+</html>
