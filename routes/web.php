@@ -12,14 +12,12 @@ use App\Http\Controllers\AdminController;
 
 //Đăng ký đăng nhập, quên mật khẩu
 Auth::routes();
-Route::name('frontend. ')->group(function(){
+Route::name('frontend.')->group(function(){
     //Trang Home
     Route::get('/', [HomeController::class,'getHome'])->name('home');
     Route::get('/home', [HomeController::class,'getHome'])->name('home');
     //Trang beat
-    Route::get('/beat',[HomeController::class,'getBeat'])->name('beat');
-    Route::get('/beat/{typebeat_slug}',[HomeController::class,'getBeat'])->name('beat.phanloai');
-    Route::get('/beat/{typebeat_slug}/{beatnames_lug}',[HomeController::class,'getBeat_Detail'])->name('beat.detail');
+
     //Bổ sung các trang con sau
 });
 //Guest

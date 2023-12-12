@@ -24,11 +24,10 @@ class GuestController extends Controller
     }
     public function getProject($id='')
     {
-        return view('rapper.donhang');
+        return view('rapper.project');
     }
     public function postProject(Request $request, $id)
     {
-        
     }
     public function getInformation()
     {

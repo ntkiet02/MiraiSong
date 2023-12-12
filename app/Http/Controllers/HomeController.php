@@ -28,7 +28,7 @@ class HomeController extends Controller
     }
     public function getBeat($typename_slug='')
     {
-        return view('frontend.beat');
+        return view('frontend.writerap');
     }
     public function getRegister()
     {
