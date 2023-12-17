@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Beat;
 use App\Models\TypeBeat;
 use App\Models\Rapper;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -40,6 +41,22 @@ class HomeController extends Controller
 
     //     return view('frontend.beat');
     // }
+    public function getWriteRap()
+    {
+        if(Auth::check())
+            return view('frontend.writerap');
+        else
+            return redirect()->route('frontend.writerap');
+    }
+    public function postWriteRap()
+    {
+        
+        return redirect()->route('frontend.writerapsuccess');
+    }
+    public function getWriteRapSuccess()
+    {
+        return view ('rapper.writerapsuccess');
+    }
     public function getRegister()
     {
         return view('user.register');

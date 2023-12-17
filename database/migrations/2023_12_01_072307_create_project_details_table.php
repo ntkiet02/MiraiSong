@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('project_id')->constrained('project');
             $table->foreignId('beat_id')->constrained('beat'); 
+           
             $table->text('lyric');
             $table->text('recording');     
             $table->string('image_project')->nullable();

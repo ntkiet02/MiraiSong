@@ -12,22 +12,7 @@ class GuestController extends Controller
         $rapper = Rapper::all();
         return view('rapper.home', compact('rapper'));
     }
-    public function getWriteRap()
-    {
-        if(Auth::check())
-            return view('rapper.writerap');
-        else
-            return redirect()->route('rapper.writerap');
-    }
-    public function postWriteRap()
-    {
-        
-        return redirect()->route('rapper.writerapsuccess');
-    }
-    public function getWriteRapSuccess()
-    {
-        return view ('rapper.writerapsuccess');
-    }
+   
     public function getProject($id='')
     {
         return view('rapper.project');

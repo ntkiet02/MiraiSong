@@ -21,6 +21,11 @@ Route::name('frontend.')->group(function(){
     Route::get('/beat/{typename_slug}', [HomeController::class,'getBeat'])->name('beat.type');    
     Route::get('/beat/{typename_slug}/{beatname_slug}', [HomeController::class,'getBeatDetail'])->name('beat.detail');
     //Bổ sung các trang con sau
+    //Write Rap
+    Route::get('/write-rap',[HomeController::class,'getWriteRap'])->name('writerap');
+    Route::post('/write-rap',[HomeController::class,'postWriteRap'])->name('writerap');
+    Route::get('/write-rap-success',[HomeController::class,'getWriteRapSuccess'])->name('writerapsuccess');
+  
 });
 //Guest
 Route::get('/guest/register', [HomeController::class, 'getRegister'])->name('rapper.register');
@@ -29,11 +34,8 @@ Route::prefix('rapper')->name('rapper.')->group(function(){
     //Trang Chủ
     Route::get('/', [GuestController::class, 'getHome'])->name('home');
     Route::get('/home', [GuestController::class, 'getHome'])->name('home');
-    //Write Rap
-    Route::get('/write-rap',[GuestController::class,'getWriteRap'])->name('writerap');
-    Route::post('/write-rap',[GuestController::class,'postWriteRap'])->name('writerap');
-    Route::get('/write-rap-success',[GuestController::class,'getWriteRapSuccess'])->name('writerapsuccess');
-    // View Project
+    
+     // View Project
     Route::get('/project',[GuestController::class,'getProject'])->name('project');
     Route::get('/project/{id}',[GuestController::class,'getProject'])->name('project.detail');
     Route::post('/project/{id}',[GuestController::class,'postProject'])->name('project.detail');

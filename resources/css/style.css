@@ -1653,6 +1653,7 @@ ol {
   font-weight: 300;
   margin-bottom: 14px;
   resize: none;
+  overflow-y: auto;
 }
 .blog__details__comment form textarea:placeholder {
   color: #adadad;

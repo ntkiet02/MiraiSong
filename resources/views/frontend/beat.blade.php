@@ -2,15 +2,13 @@
 
 @section('content')
  <!-- Breadcrumb Begin -->
-
     <div class="breadcrumb-option spad set-bg" data-setbg="resources/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">  
                     <div class="breadcrumb__text">
                         <h2>ALL OF TYPE</h2>
-                    </div>
-                   
+                    </div>  
                 </div>
             </div>
         </div>
@@ -26,7 +24,6 @@
                         @endforeach
                     </ul>
                 </div>
-                
             </div>
         <div class="work__gallery">
             @foreach($beat as $b )
@@ -45,6 +42,4 @@
         </div>
     </section>
     <!-- Work Section End -->
-
-
 @endsection
