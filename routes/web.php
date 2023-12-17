@@ -17,7 +17,9 @@ Route::name('frontend.')->group(function(){
     Route::get('/', [HomeController::class,'getHome'])->name('home');
     Route::get('/home', [HomeController::class,'getHome'])->name('home');
     //Trang beat
-
+    Route::get('/beat', [HomeController::class,'getBeat'])->name('beat');
+    Route::get('/beat/{typename_slug}', [HomeController::class,'getBeat'])->name('beat.type');    
+    Route::get('/beat/{typename_slug}/{beatname_slug}', [HomeController::class,'getBeatDetail'])->name('beat.detail');
     //Bổ sung các trang con sau
 });
 //Guest

@@ -16,6 +16,7 @@ class GuestController extends Controller
     }
     public function postWriteRap()
     {
+        
         return redirect()->route('rapper.writerapsuccess');
     }
     public function getWriteRapSuccess()

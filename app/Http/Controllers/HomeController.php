@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Beat;
+use App\Models\TypeBeat;
 class HomeController extends Controller
 {
     /**
@@ -24,12 +25,20 @@ class HomeController extends Controller
      */
     public function getHome()
     {
+        
         return view('frontend.home');
     }
-    public function getBeat($typename_slug='')
+    public function getBeat()
     {
-        return view('frontend.writerap');
+        $beat= Beat::all();
+        $typebeat = TypeBeat::all();
+        return view('frontend.beat', compact('beat'), compact('typebeat'));
     }
+    // public function getBeat($typename_slug='')
+    // { 
+
+    //     return view('frontend.beat');
+    // }
     public function getRegister()
     {
         return view('user.register');

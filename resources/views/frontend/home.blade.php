@@ -1,58 +1,46 @@
 @extends('layouts.frontend')
 @section('content')
-<section class="work">
-        <div class="work__gallery">
-            <div class="grid-sizer"></div>
-            <div class="work__item wide__item set-bg" data-setbg="img/work/work-1.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-                <div class="work__item__hover">
-                    <h4>VIP Auto Tires & Service</h4>
-                    <ul>
-                        <li>eCommerce</li>
-                        <li>Magento</li>
-                    </ul>
+<section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__item set-bg" data-setbg="resources/img/Sakura.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>For website and video editing</span>
+                                <h2>Videographer’s Portfolio</h2>
+                                <a href="#" class="primary-btn">See more about us</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="work__item small__item set-bg" data-setbg="img/work/work-2.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-            </div>
-            <div class="work__item small__item set-bg" data-setbg="img/work/work-3.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-            </div>
-            <div class="work__item large__item set-bg" data-setbg="img/work/work-4.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-                <div class="work__item__hover">
-                    <h4>VIP Auto Tires & Service</h4>
-                    <ul>
-                        <li>eCommerce</li>
-                        <li>Magento</li>
-                    </ul>
+            <div class="hero__item set-bg" data-setbg="resources/img/Sakura.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>For website and video editing</span>
+                                <h2>Videographer’s Portfolio</h2>
+                                <a href="#" class="primary-btn">See more about us</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="work__item small__item set-bg" data-setbg="img/work/work-5.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-            </div>
-            <div class="work__item small__item set-bg" data-setbg="img/work/work-6.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-            </div>
-            <div class="work__item wide__item set-bg" data-setbg="img/work/work-7.jpg">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="play-btn video-popup"><i
-                        class="fa fa-play"></i></a>
-                <div class="work__item__hover">
-                    <h4>VIP Auto Tires & Service</h4>
-                    <ul>
-                        <li>eCommerce</li>
-                        <li>Magento</li>
-                    </ul>
+            <div class="hero__item set-bg" data-setbg="resources/img/Sakura.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>For website and video editing</span>
+                                <h2>Videographer’s Portfolio</h2>
+                                <a href="#" class="primary-btn">See more about us</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection

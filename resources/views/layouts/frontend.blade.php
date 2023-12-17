@@ -28,7 +28,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body>
     <!-- Page Preloder -->
     <!-- Cái củ chuối này là hiển thị quay vòng vòng khi tải trang -->
@@ -48,9 +47,9 @@
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Portfolio</a></li>
+                                <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
+                                <li><a href="{{route('frontend.beat')}}">Beat</a></li>
+                                <li><a href="">Write Rap</a></li>
                                 <li><a href="#">Services</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
@@ -82,13 +81,7 @@
         </div>
     </header> <!-- Header End -->
     <main>
-    <section class="hero">
-        <div class="hero__slider owl-carousel">
-           <img src = "resources/img/Sakura.jpg"/>
-        </div>
-    </section>
-
-    @yield('content')
+        @yield('content')
     </main>
     <!-- Footer Section Begin -->
     <footer class="footer">
