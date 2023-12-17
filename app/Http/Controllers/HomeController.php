@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Beat;
 use App\Models\TypeBeat;
+use App\Models\Rapper;
 class HomeController extends Controller
 {
     /**
@@ -31,7 +32,7 @@ class HomeController extends Controller
     public function getBeat()
     {
         $beat= Beat::all();
-        $typebeat = TypeBeat::all();
+        $typebeat = TypeBeat::all();     
         return view('frontend.beat', compact('beat'), compact('typebeat'));
     }
     // public function getBeat($typename_slug='')

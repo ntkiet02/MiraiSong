@@ -62,7 +62,26 @@
                                 <li><a href="#">Contact</a></li>
                                 @if (Route::has('login'))
                                     @auth
-                                    <li><a href="{{ url('/home') }}">Home</a> </li>
+                                    <li>
+                                        <div class="testimonial__author">
+                                            <div class="testimonial__author__pic">       
+                                                <img href="#" src="{{env('APP_URL') . '/storage/app/' . Auth::user()->image_rapper}}">
+                                            </div>
+                                            <div class="testimonial__author__text">
+                                                <h5>{{Auth::user()->name}}</h5>
+                                                <a class="dropdown-item" href="{{ route('logout') }}" 
+                                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+ 
+                                            </div>
+                                        </div>
+                                    </li>
+
                                     @else
                                     <li><a href="{{ route('login') }}">Log in</a> </li>
                                         @if (Route::has('register'))
@@ -70,7 +89,8 @@
                                         @endif
                                     @endauth
                                 </div>
-                            @endif
+                                @endif
+                               
                             </ul>
                         </nav>
                        

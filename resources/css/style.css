@@ -1114,7 +1114,11 @@ ol {
   overflow: hidden;
 }
 .testimonial__author__text h5 {
-  color: #ffffff;
+  color: #4d18cb;
+  font-weight: 700;
+  margin-bottom: 8px;
+}.testimonial__author__text h6 {
+  color: #4b11d3;
   font-weight: 700;
   margin-bottom: 8px;
 }

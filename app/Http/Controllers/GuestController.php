@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Rapper;
 class GuestController extends Controller
 {
     public function getHome()
     {
-        return view('rapper.home');
+        $rapper = Rapper::all();
+        return view('rapper.home', compact('rapper'));
     }
     public function getWriteRap()
     {
-        return view ('rapper.writerap');
+        if(Auth::check())
+            return view('rapper.writerap');
+        else
+            return redirect()->route('rapper.writerap');
     }
     public function postWriteRap()
     {
