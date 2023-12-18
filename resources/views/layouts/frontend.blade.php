@@ -48,8 +48,8 @@
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
                                 <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                                <li><a href="{{route('frontend.beat')}}">Beat</a></li>
-                                <li><a href="{{route('frontend.writerap')}}">Write Rap</a></li>
+                                <li><a href="#">Beat</a></li>
+                                <li><a href="#">Write Rap</a></li>
                                 <li><a href="#">Services</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">

@@ -9,10 +9,21 @@ class GuestController extends Controller
 {
     public function getHome()
     {
-        $rapper = Rapper::all();
-        return view('rapper.home', compact('rapper'));
+        // $rapper = Rapper::all();, compact('rapper')
+        return view('rapper.home');
     }
-   
+    public function getWriteRap()
+    {
+        return view('rapper.writerap');
+    }
+    public function postWriteRap(Request $request)
+    {
+        return redirect()->route('rapper.writerapsuccess');
+    }
+    public function getWriteRapSuccess()
+    {
+        return view('rapper.writerapsuccess');
+    }
     public function getProject($id='')
     {
         return view('rapper.project');

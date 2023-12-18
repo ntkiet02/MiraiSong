@@ -27,42 +27,36 @@ class HomeController extends Controller
      */
     public function getHome()
     {
-        
-        return view('frontend.home');
+        $typebeat= TypeBeat::all();
+        $beat=Beat::all();
+        return view('frontend.home', compact('typebeat'), compact('beat'));
     }
-    public function getBeat()
-    {
-        $beat= Beat::all();
-        $typebeat = TypeBeat::all();     
-        return view('frontend.beat', compact('beat'), compact('typebeat'));
-    }
-    // public function getBeat($typename_slug='')
-    // { 
+    public function getBeat($typename_slug='')
+    { 
 
-    //     return view('frontend.beat');
-    // }
-    public function getWriteRap()
-    {
-        if(Auth::check())
-            return view('frontend.writerap');
-        else
-            return redirect()->route('frontend.writerap');
+        return view('frontend.beat');
     }
-    public function postWriteRap()
-    {
-        
-        return redirect()->route('frontend.writerapsuccess');
+    public function getBeatDetail($typename_slug='', $beatname_slug='')
+    { 
+
+        return view('frontend.beatdetail');
     }
-    public function getWriteRapSuccess()
+    public function getViewProject($name='')
     {
-        return view ('rapper.writerapsuccess');
+        return view('frontend.viewproject');
+    }
+    public function getViewProjectDetail($name='',$nameprojectdetail='')
+    {
+        return view('frontend.viewprojectdetail');
     }
     public function getRegister()
     {
         return view('user.register');
-    }public function getLogin()
+    }
+    public function getLogin()
     {
         return view('user.login');
     }
+  
 
 }

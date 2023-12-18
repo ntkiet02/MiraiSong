@@ -1,7 +1,8 @@
 <?php
-use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TypeBeatController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MusicianController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\RapperController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\AdminController;
 
 //Đăng ký đăng nhập, quên mật khẩu
+
 Auth::routes();
 Route::name('frontend.')->group(function(){
     //Trang Home
@@ -20,21 +22,25 @@ Route::name('frontend.')->group(function(){
     Route::get('/beat', [HomeController::class,'getBeat'])->name('beat');
     Route::get('/beat/{typename_slug}', [HomeController::class,'getBeat'])->name('beat.type');    
     Route::get('/beat/{typename_slug}/{beatname_slug}', [HomeController::class,'getBeatDetail'])->name('beat.detail');
+    //Xem video da luu
+     //Trang beat
+    Route::get('/viewproject', [HomeController::class,'getViewProject'])->name('viewproject');
+    Route::get('/viewproject/{name}', [HomeController::class,'getViewProject'])->name('viewproject.type');    
+    Route::get('/viewproject/{name}/{nameprojectdetail}', [HomeController::class,'getViewProjectDetail'])->name('viewproject.detail');
     //Bổ sung các trang con sau
-    //Write Rap
-    Route::get('/write-rap',[HomeController::class,'getWriteRap'])->name('writerap');
-    Route::post('/write-rap',[HomeController::class,'postWriteRap'])->name('writerap');
-    Route::get('/write-rap-success',[HomeController::class,'getWriteRapSuccess'])->name('writerapsuccess');
-  
 });
 //Guest
 Route::get('/guest/register', [HomeController::class, 'getRegister'])->name('rapper.register');
 Route::get('/guest/login', [HomeController::class, 'getLogin'])->name('rapper.login');
-Route::prefix('rapper')->name('rapper.')->group(function(){
+Route::prefix('guest')->name('rapper.')->group(function(){
     //Trang Chủ
     Route::get('/', [GuestController::class, 'getHome'])->name('home');
     Route::get('/home', [GuestController::class, 'getHome'])->name('home');
-    
+    //Write Rap
+    Route::get('/write-rap',[GuestController::class,'getWriteRap'])->name('writerap');
+    Route::post('/write-rap',[GuestController::class,'postWriteRap'])->name('writerap');
+    Route::get('/write-rap-success',[GuestController::class,'getWriteRapSuccess'])->name('writerapsuccess');
+  
      // View Project
     Route::get('/project',[GuestController::class,'getProject'])->name('project');
     Route::get('/project/{id}',[GuestController::class,'getProject'])->name('project.detail');
@@ -44,9 +50,7 @@ Route::prefix('rapper')->name('rapper.')->group(function(){
     Route::post('/information',[GuestController::class,'postInformation'])->name('information');
     //Log out
     Route::post('/logout',[GuestController::class,'postLogout'])->name('logout');
-    
-    
-    
+ 
 });
 //Admin
 Route::prefix('admin')->name('admin.')->group(function(){
