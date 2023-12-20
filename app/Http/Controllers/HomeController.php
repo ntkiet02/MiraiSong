@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Beat;
+use App\Models\Musician;
 use App\Models\TypeBeat;
 use App\Models\Rapper;
 use Illuminate\Support\Facades\Auth;
@@ -28,18 +29,35 @@ class HomeController extends Controller
     public function getHome()
     {
         $typebeat= TypeBeat::all();
-        $beat=Beat::all();
-        return view('frontend.home', compact('typebeat'), compact('beat'));
+        $musician=Musician::all();
+        return view('frontend.home',compact('musician'), compact('typebeat'));
+       
     }
     public function getBeat($typename_slug='')
     { 
-
-        return view('frontend.beat');
+        $typebeat= TypeBeat::where('typename_slug',$typename_slug)->first();
+        if(!$typebeat)
+        {
+            abort(404);
+        }
+        $listBeattoType=Beat::where('typebeat_id', $typebeat->id)->get();
+        return view('frontend.beat', compact('typebeat','listBeattoType'));
     }
     public function getBeatDetail($typename_slug='', $beatname_slug='')
     { 
+       // Tìm thông tin sản phẩm dựa trên các tham số nhận được
+       $beat = Beat::join('typebeat', 'beat.typebeat_id', '=', 'typebeat.id')
+       ->where('typebeat.typename_slug', $typename_slug)
+       ->where('beat.beatname_slug', $beatname_slug)
+       ->first();
 
-        return view('frontend.beatdetail');
+        // Kiểm tra xem sản phẩm có tồn tại không
+        if (!$beat) {
+            abort(404); // Trả về trang 404 Not Found
+   }        
+   
+   return view('frontend.beatdetail', compact('beat'));
+
     }
     public function getViewProject($name='')
     {

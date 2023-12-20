@@ -18,13 +18,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/bootstrap.min.css ')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/elegant-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('resources/css/style.css')}}" type="text/css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{ route('frontend.home') }}"><img src="resources/img/miku.png" size="20px" alt=""></a>
+                        <a href="{{ route('frontend.home') }}"><img src="{{asset('resources/img/miku.png')}}" size="20px" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -48,7 +48,6 @@
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
                                 <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                                <li><a href="#">Beat</a></li>
                                 <li><a href="#">Write Rap</a></li>
                                 <li><a href="#">Services</a></li>
                                 <li><a href="#">Pages</a>
@@ -81,7 +80,6 @@
                                             </div>
                                         </div>
                                     </li>
-
                                     @else
                                     <li><a href="{{ route('login') }}">Log in</a> </li>
                                         @if (Route::has('register'))
@@ -176,14 +174,14 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="resources/js/jquery-3.3.1.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>
-        <script src="resources/js/jquery.magnific-popup.min.js"></script>
-        <script src="resources/js/mixitup.min.js"></script>
-        <script src="resources/js/masonry.pkgd.min.js"></script>
-        <script src="resources/js/jquery.slicknav.js"></script>
-        <script src="resources/js/owl.carousel.min.js"></script>
-        <script src="resources/js/main.js"></script>
+    <script src="{{asset('resources/js/jquery-3.3.1.min.js')}}"></script>
+        <script src="{{asset('resources/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('resources/js/jquery.magnific-popup.min.js')}}"></script>
+        <script src="{{asset('resources/js/mixitup.min.js')}}"></script>
+        <script src="{{asset('resources/js/masonry.pkgd.min.js')}}"></script>
+        <script src="{{asset('resources/js/jquery.slicknav.js')}}"></script>
+        <script src="{{asset('resources/js/owl.carousel.min.js')}}"></script>
+        <script src="{{asset('resources/js/main.js')}}"></script>
 </body>
 
 </html>

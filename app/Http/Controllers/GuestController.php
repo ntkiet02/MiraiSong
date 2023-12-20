@@ -9,8 +9,13 @@ class GuestController extends Controller
 {
     public function getHome()
     {
-        // $rapper = Rapper::all();, compact('rapper')
-        return view('rapper.home');
+        if(Auth::check())
+        {
+            $rapper = Rapper::find(Auth::user()->id);
+            return view('rapper.home', compact('rapper'));
+        }
+        else
+            return redirect()->route('rapper.login');
     }
     public function getWriteRap()
     {
