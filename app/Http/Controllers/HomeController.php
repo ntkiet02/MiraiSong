@@ -28,10 +28,11 @@ class HomeController extends Controller
      */
     public function getHome()
     {
-        $typebeat= TypeBeat::all();
-        $musician=Musician::all();
-        return view('frontend.home',compact('musician'), compact('typebeat'));
-       
+
+        $typebeat=TypeBeat::all();
+        $beat=Beat::all();
+        return view('frontend.home', compact('typebeat'), compact('beat'));
+
     }
     public function getBeat($typename_slug='')
     { 
@@ -50,13 +51,11 @@ class HomeController extends Controller
        ->where('typebeat.typename_slug', $typename_slug)
        ->where('beat.beatname_slug', $beatname_slug)
        ->first();
-
-        // Kiểm tra xem sản phẩm có tồn tại không
         if (!$beat) {
             abort(404); // Trả về trang 404 Not Found
-   }        
+            }        
    
-   return view('frontend.beatdetail', compact('beat'));
+        return view('frontend.beatdetail', compact('beat'));
 
     }
     public function getViewProject($name='')

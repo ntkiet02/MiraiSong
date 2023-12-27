@@ -56,19 +56,19 @@
             </div>
         </div>
         <div class="work__gallery">
-            @foreach($beat as $b )
-            <div class="grid-sizer"></div>
-                <div class="work__item wide__item set-bg play-button audio-background  " data-setbg="{{ env('APP_URL') . '/storage/app/'.$b->image_beat}}">
-                    <a herf="#" class ="play-btn video-popup"><i class="fa fa-play"></i> </a>
-                    <div class="work__item__hover ">
-                        <h4>{{$b->beatname}}/{{$b->Musician->stagename}}</h4>
-                        <audio controls>
-                            <source src="{{ env('APP_URL') . '/storage/app/' . $b->file_path }}" type="audio/mp3">
-                        </audio>
-                    </div>
+        @foreach($beat as $b )
+        <div class="grid-sizer"></div>
+            <div class="work__item wide__item set-bg play-button audio-background  " data-setbg="{{ env('APP_URL') . '/storage/app/'.$b->image_beat}}">
+              <a href ="{{route('frontend.beat')}}" class ="play-btn video-popup"><i class="fa fa-play"></i> </a> 
+                <div class="work__item__hover ">
+                    <h4>{{$b->beatname}}/{{$b->Musician->stagename}}</h4>
+                    <audio controls>
+                        <source src="{{ env('APP_URL') . '/storage/app/' . $b->file_path }}" type="audio/mp3">
+                    </audio>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
+    </div>
     </div>
 </section>
 <!-- Work Section End -->
