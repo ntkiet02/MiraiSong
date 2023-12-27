@@ -48,14 +48,12 @@
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
                                 <li><a href="{{ route('frontend.home') }}">Home</a></li>
-                                <li><a href="{{ route('frontend.beat') }}">Beat</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Pages</a>
+                                <li><a href="{{ route('frontend.beat') }}">Beat</a>
                                     <ul class="dropdown">
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Blog Details</a></li>
+                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'lofi']) }}">Lofi</a></li>
+                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'indie-rap']) }}">Indie Rap</a></li>
+                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'trap']) }}">Trap</a></li>
+                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'boom-bap']) }}">Boom Bap</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Contact</a></li>

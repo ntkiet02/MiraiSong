@@ -21,6 +21,8 @@ class Rapper extends Authenticatable
         'username',
         'role',
         'password',
+        'image_rapper',
+        'information',
     ];
 
     protected $hidden = [

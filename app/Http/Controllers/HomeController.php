@@ -28,11 +28,9 @@ class HomeController extends Controller
      */
     public function getHome()
     {
-
         $typebeat=TypeBeat::all();
-        $beat=Beat::all();
-        return view('frontend.home', compact('typebeat'), compact('beat'));
-
+        $musician=Musician::all();
+        return view('frontend.home', compact('typebeat','musician'));
     }
     public function getBeat($typename_slug='')
     { 
@@ -41,8 +39,8 @@ class HomeController extends Controller
         {
             abort(404);
         }
-        $listBeattoType=Beat::where('typebeat_id', $typebeat->id)->get();
-        return view('frontend.beat', compact('typebeat','listBeattoType'));
+        $lb=Beat::where('typebeat_id', $typebeat->id)->get();
+        return view('frontend.beat', compact('typebeat','lb'));
     }
     public function getBeatDetail($typename_slug='', $beatname_slug='')
     { 
@@ -51,12 +49,11 @@ class HomeController extends Controller
        ->where('typebeat.typename_slug', $typename_slug)
        ->where('beat.beatname_slug', $beatname_slug)
        ->first();
-        if (!$beat) {
+        if (!$beat) 
+        {
             abort(404); // Trả về trang 404 Not Found
-            }        
-   
+        }        
         return view('frontend.beatdetail', compact('beat'));
-
     }
     public function getViewProject($name='')
     {

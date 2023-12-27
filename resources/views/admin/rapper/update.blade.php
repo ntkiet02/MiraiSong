@@ -8,7 +8,7 @@
             <div class="mb-3">
                 <label class="form-label" for="image_rapper">Image</label>
                 @if(empty($rapper->image_rapper))
-                    <image class="d-block rounded img-thumbnail" src="{{env('APP_URL') . '/storage/app/'.$value->image_rapper}}" width="100" ></image>
+                    <image class="d-block rounded img-thumbnail" src="{{env('APP_URL') . '/storage/app/'.$rapper->image_rapper}}" width="100" ></image>
                     <span class="d-block small text-danger">Bỏ trống nếu muốn giữ ảnh cũ.</span>
                 @endif
                 <input type="file" class="form-control @error('image_rapper') is-invalid @enderror"  id="image_rapper" name="image_rapper" />

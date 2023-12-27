@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('recording');     
             $table->string('image_project')->nullable();
             $table->timestamps();
+            $table->engine='InnoDB';
         });
     }
 
