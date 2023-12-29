@@ -30,10 +30,11 @@ class HomeController extends Controller
     {
         $typebeat=TypeBeat::all();
         $musician=Musician::all();
+        // return view('frontend.home' ,  dd($typebeat));
         return view('frontend.home', compact('typebeat','musician'));
     }
     public function getBeat($typename_slug='')
-    { 
+    {
         $typebeat= TypeBeat::where('typename_slug',$typename_slug)->first();
         if(!$typebeat)
         {

@@ -50,10 +50,18 @@
                                 <li><a href="{{ route('frontend.home') }}">Home</a></li>
                                 <li><a href="{{ route('frontend.beat') }}">Beat</a>
                                     <ul class="dropdown">
-                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'lofi']) }}">Lofi</a></li>
-                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'indie-rap']) }}">Indie Rap</a></li>
-                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'trap']) }}">Trap</a></li>
-                                        <li><a href="{{ route('frontend.beat.type',['typename_slug' => 'boom-bap']) }}">Boom Bap</a></li>
+                                        
+                                        @foreach($typebeat as $tb)
+                                            <li>
+                                                @if(isset($tb->typename))
+                                                    <a href="{{ isset($tb->typename_slug) ? route('frontend.beat.type', ['typename_slug' => $tb->typename_slug]) : '#' }}">
+                                                        {{ $tb->typename }}
+                                                    </a>
+                                                @else
+                                                    <span>Missing typename</span>
+                                                @endif
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li><a href="#">Contact</a></li>

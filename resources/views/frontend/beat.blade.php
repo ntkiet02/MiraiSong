@@ -1,15 +1,15 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/breadcrumb-bg.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>About us</h2>
+                    <h2>{{$typebeat->typename}}</h2>
                     <div class="breadcrumb__links">
                         <a href="{{route('frontend.home')}}">Home</a>
-                        <span>About</span>
+                        <span>Home but but on the right and can't click </span>
                     </div>
                 </div>
             </div>
@@ -21,8 +21,8 @@
         <div class="row">
             <div class="col-lg-12"> 
                 <ul class="portfolio__filter">
-                    <li class="active" data-filter="*">All</li>
-                    <li>{{$typebeat->typename}}</li>
+                    <li class="active">_____</li>
+                   
                 </ul>
             </div>
         </div>

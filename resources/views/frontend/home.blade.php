@@ -1,6 +1,8 @@
 @extends('layouts.frontend')
 @section('title', 'Trang chủ')
 @section('content')
+
+
 <section class="hero">
     <div class="hero__slider owl-carousel">
         <div class="hero__item set-bg" data-setbg="{{asset('resources/img/Sakura.jpg')}}">
