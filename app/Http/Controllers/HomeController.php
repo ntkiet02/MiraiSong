@@ -34,6 +34,7 @@ class HomeController extends Controller
         // return view('frontend.home' ,  dd($typebeat));
         return view('frontend.home', compact('typebeat','musician'), compact('beat'));
     }
+
     public function getBeat($typename_slug='')
     {
         $typebeat= TypeBeat::where('typename_slug',$typename_slug)->first();
