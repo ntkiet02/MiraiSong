@@ -32,6 +32,7 @@ Route::name('frontend.')->group(function(){
 //Guest
 Route::get('/guest/register', [HomeController::class, 'getRegister'])->name('rapper.register');
 Route::get('/guest/login', [HomeController::class, 'getLogin'])->name('rapper.login');
+
 Route::prefix('guest')->name('rapper.')->group(function(){
     //Trang Chủ
     Route::get('/', [GuestController::class, 'getHome'])->name('home');

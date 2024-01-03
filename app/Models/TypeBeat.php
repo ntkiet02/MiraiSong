@@ -10,7 +10,7 @@ class TypeBeat extends Model
 {
     use HasFactory;
     protected $table ='typebeat';
-    public function TypeBeat(): HasMany
+    public function Beat(): HasMany
     {
     return $this->hasMany(Beat::class, 'typebeat_id', 'id');
     }

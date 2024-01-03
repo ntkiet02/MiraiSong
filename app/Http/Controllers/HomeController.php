@@ -30,8 +30,9 @@ class HomeController extends Controller
     {
         $typebeat=TypeBeat::all();
         $musician=Musician::all();
+        $beat=Beat::all();
         // return view('frontend.home' ,  dd($typebeat));
-        return view('frontend.home', compact('typebeat','musician'));
+        return view('frontend.home', compact('typebeat','musician'), compact('beat'));
     }
     public function getBeat($typename_slug='')
     {
@@ -66,11 +67,13 @@ class HomeController extends Controller
     }
     public function getRegister()
     {
-        return view('user.register');
+        // return view('user.register');
+        return view('rapper.register');
     }
     public function getLogin()
     {
-        return view('user.login');
+        return view('rapper.login');
+        // return view('user.login');
     }
   
 
