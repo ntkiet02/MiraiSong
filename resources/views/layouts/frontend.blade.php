@@ -217,7 +217,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__top__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href=""><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-dribbble"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
@@ -231,27 +231,16 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer__option__item">
                             <h5>About us</h5>
-                            <p>&copy; 2024 by Nguyễn Trí Kiệt and Bùi Thị Ngọc Hân. Raptome là trang web siu cấp vip pro không được bất kỳ giải thưởng hay người dùng cũng như feedback nào. Huhu</p>
+                            <p>&copy; 2024 by Trí Kiệt and Ngọc Hân. MiraiSong là trang web cho phép người dùng xem video, viết lời trên nền nhạc.</p>
                             <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Our work</h5>
-                            <ul>
-                                <li><a href="#">Feature</a></li>
-                                <li><a href="#">Latest</a></li>
-                                <li><a href="#">Browse Archive</a></li>
-                                <li><a href="#">Video for web</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </div>             
                     <div class="col-lg-4 col-md-12">
                         <div class="footer__option__item">
                             <h5>Newsletter</h5>
                             <p>Videoprah is an award-winning, full-service production company specializing.</p>
                             <form action="#">
-                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Này để chơi chứ không sài được.">
                                 <button type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
