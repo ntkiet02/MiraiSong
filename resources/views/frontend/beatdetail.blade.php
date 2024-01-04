@@ -33,11 +33,8 @@
             <input id="button" type="submit" value="Save">	
         </form>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            autosize(document.querySelectorAll('textarea'));
-            });
-    </script>
+    <script src="{{asset('resources/js/paperline.js')}}"></script>
+    
 </section>
 <!-- Call To Action Section Begin -->
 
