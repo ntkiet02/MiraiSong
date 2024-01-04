@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="{{asset('resources/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('resources/css/style.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('resources/css/paperline.css')}}" type="text/css">
-
+    <link rel="stylesheet" href="{{asset('resources/css/beatdetail.css')}}" type="text/css">
     <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+    <script src="https://kit.fontawesome.com/480f370597.js" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 </head>
 <body>

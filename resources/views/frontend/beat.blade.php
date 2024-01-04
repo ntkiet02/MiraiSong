@@ -9,7 +9,7 @@
                     <h2>{{$typebeat->typename}}</h2>
                     <div class="breadcrumb__links">
                         <a href="{{route('frontend.home')}}">Home</a>
-                        <span>Home but but on the right and can't click </span>
+                        <span>Home, but on the right and can't click </span>
                     </div>
                 </div>
             </div>

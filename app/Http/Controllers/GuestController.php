@@ -19,7 +19,10 @@ class GuestController extends Controller
     }
     public function getWriteRap()
     {
-        return view('rapper.writerap');
+        if (Auth::check())
+            return view('rapper.writerap');
+        else
+            return redirect()->route('rapper.login');
     }
     public function postWriteRap(Request $request)
     {
