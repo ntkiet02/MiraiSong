@@ -3,8 +3,9 @@
 <div class="card">
     <div class="card-header">Status</div>
     <div class="card-body table-responsive">
-        <p><a href="{{ route('admin.beat.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
-        </p>
+        <p>
+            <a href="{{ route('admin.beat.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
+        </p>     
         <table class="table table-bordered table-hover table-sm mb-0">
             <thead>
                 <tr>
@@ -21,7 +22,7 @@
             <tbody>
                 @foreach($beat as $value)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{$loop->index + $beat->firstItem()}}</td>
                     <td>{{$value->TypeBeat->typename}}</td>
                     <td>{{$value->Musician->stagename}}</td>
                     <td>{{$value->beatname}}</td>   
@@ -35,7 +36,8 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>      
+        </table>
+          
     </div>
 </div>
 @endsection

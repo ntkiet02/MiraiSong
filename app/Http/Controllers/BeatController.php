@@ -12,7 +12,7 @@ class BeatController extends Controller
 {
     public function getList()
     {
-        $beat = Beat::all();
+        $beat = Beat::paginate(100);
         return view('admin.beat.list', compact('beat'));
     }
     public function getAdd()

@@ -13,18 +13,7 @@
         </div>
     </div>
 </div>
-    <!-- <div class="contact__form">
-        <h3>Write Words of Heart</h3>
-        <form action="#" method="post" enctype="multipart/form-data" >
-            @csrf
-            <input type="text" placeholder="Name Project" id="" name="">
-            <textarea placeholder="Lyric"></textarea>
-            <button type="submit" class="btn btn-primary"><i class="fa-light fa-save"></i> Uploads to CSDL</button>
-        </form>
-         -->
-    <!-- </div> -->
-<section class="portfolio spad">
-    
+<section class="portfolio spad">   
     <div id="wrapper">
         <form id="paper" action="" method="post" enctype="multipart/form-data">
             <div id="margin">Title: <input id="title" type="text" name="title"></div>
@@ -33,8 +22,7 @@
             <input id="button" type="submit" value="Save">	
         </form>
     </div>
-    <script src="{{asset('resources/js/paperline.js')}}"></script>
-    
+    <script src="{{asset('resources/js/paperline.js')}}"></script>   
 </section>
 <!-- Call To Action Section Begin -->
 

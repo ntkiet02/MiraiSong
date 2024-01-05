@@ -33,7 +33,7 @@ Route::name('frontend.')->group(function(){
 Route::get('/guest/register', [HomeController::class, 'getRegister'])->name('rapper.register');
 Route::get('/guest/login', [HomeController::class, 'getLogin'])->name('rapper.login');
 
-Route::prefix('guest')->name('rapper.')->group(function(){
+Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(function(){
     //Trang Chủ
     Route::get('/', [GuestController::class, 'getHome'])->name('home');
     Route::get('/home', [GuestController::class, 'getHome'])->name('home');
@@ -54,7 +54,7 @@ Route::prefix('guest')->name('rapper.')->group(function(){
  
 });
 //Admin
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function(){
     //Trang Chủ
     Route::get('/',[AdminController::class, 'getHome'])->name('home');
     Route::get('/home',[AdminController::class, 'getHome'])->name('home');
