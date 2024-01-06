@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{asset('resources/css/paperline.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('resources/css/beatdetail.css')}}" type="text/css">
     <link type="text/css" rel="stylesheet" href="{{asset('resources/css/found.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{asset('resources/css/notfind.css')}}" />
     <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
     <script src="https://kit.fontawesome.com/480f370597.js" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
