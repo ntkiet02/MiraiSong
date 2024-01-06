@@ -71,12 +71,6 @@
     letter-spacing: 13px;
     margin: 0;
   }
-  .notfound .notfound-403 h3 {
-    font-size: 1.25rem; /* Kích thước chữ */
-  font-weight: normal; /* Trọng số chữ */
-  margin-bottom: 1rem; /* Khoảng cách dưới */
-  color: #333; /* Màu chữ */
-  }
   
   .notfound a {
     font-family: 'Montserrat', sans-serif;

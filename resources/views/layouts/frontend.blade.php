@@ -13,10 +13,10 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900" rel="stylesheet">
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{asset('resources/css/bootstrap.min.css ')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('resources/css/font-awesome.min.css')}}" type="text/css">
@@ -29,8 +29,11 @@
     <link rel="stylesheet" href="{{asset('resources/css/beatdetail.css')}}" type="text/css">
     <link type="text/css" rel="stylesheet" href="{{asset('resources/css/found.css')}}" />
     <link type="text/css" rel="stylesheet" href="{{asset('resources/css/notfind.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/css/profile.css')}}">
     <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
     <script src="https://kit.fontawesome.com/480f370597.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 </head>
 <body>

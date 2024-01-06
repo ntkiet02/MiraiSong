@@ -5,8 +5,9 @@
     <div class="card-body table-responsive">
         <p>
             <a href="{{ route('admin.beat.add') }}" class="btn btn-info"><i class="fa-light fa-plus"></i>Add new</a>
-        </p>     
-        <table class="table table-bordered table-hover table-sm mb-0">
+        </p>  
+        {{ $beat->links() }}   
+        <table class="table table-bordered table-hover table-sm mb-3">
             <thead>
                 <tr>
                     <th width ="5%">#</th>
@@ -22,7 +23,7 @@
             <tbody>
                 @foreach($beat as $value)
                 <tr>
-                    <td>{{$loop->index + $beat->firstItem()}}</td>
+                    <td>{{ $loop->index + $beat->firstItem() }}</td>
                     <td>{{$value->TypeBeat->typename}}</td>
                     <td>{{$value->Musician->stagename}}</td>
                     <td>{{$value->beatname}}</td>   
@@ -37,7 +38,7 @@
                 @endforeach
             </tbody>
         </table>
-          
+        {{ $beat->links() }}
     </div>
 </div>
 @endsection
