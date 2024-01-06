@@ -11,7 +11,16 @@ class Project extends Model
 {
     use HasFactory;
     protected $table = 'project';
- 
+    protected $fillable = [
+        'rapper_id', // Thêm trường rapper_id vào mảng fillable
+        'beat_id',
+        'status_id',
+        'projectname',
+        'lyric',
+        'recording',
+        'imge_project',
+        // ... các trường khác
+    ];
     public function Rapper(): BelongsTo
     {
         return $this->belongsTo(Rapper::class, 'rapper_id', 'id');
@@ -22,8 +31,8 @@ class Project extends Model
         return $this->belongsTo(Status::class, 'status_id', 'id');
     }
     
-    public function ProjectDetail(): HasMany
+    public function Beat(): BelongsTo
     {
-        return $this->hasMany(ProjectDetail::class, 'project_id', 'id');
+        return $this->belongsTo(Beat::class, 'beat_id', 'id');
     }
 }

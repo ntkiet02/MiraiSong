@@ -8,7 +8,7 @@
             {{ session('status') }}
         </div>
         @endif
-        Trang chủ rapper
+       Đã lưu thanfh công
     </div>
 </div>
 @endsection

@@ -7,6 +7,7 @@ use App\Models\Beat;
 use App\Models\Musician;
 use App\Models\TypeBeat;
 use App\Models\Rapper;
+use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
@@ -58,14 +59,7 @@ class HomeController extends Controller
         }        
         return view('frontend.beatdetail', compact('beat'));
     }
-    public function getViewProject($name='')
-    {
-        return view('frontend.viewproject');
-    }
-    public function getViewProjectDetail($name='',$nameprojectdetail='')
-    {
-        return view('frontend.viewprojectdetail');
-    }
+    
     public function getRegister()
     {
         // return view('user.register');

@@ -37,18 +37,18 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
     //Trang Chủ
     Route::get('/', [GuestController::class, 'getHome'])->name('home');
     Route::get('/home', [GuestController::class, 'getHome'])->name('home');
-    //Write Rap
-    Route::get('/write-rap',[GuestController::class,'getWriteRap'])->name('writerap');
-    Route::post('/write-rap',[GuestController::class,'postWriteRap'])->name('writerap');
-    Route::get('/write-rap-success',[GuestController::class,'getWriteRapSuccess'])->name('writerapsuccess');
-  
-     // View Project
-    Route::get('/project',[GuestController::class,'getProject'])->name('project');
-    Route::get('/project/{id}',[GuestController::class,'getProject'])->name('project.detail');
-    Route::post('/project/{id}',[GuestController::class,'postProject'])->name('project.detail');
-    // Update Information
-    Route::get('/information',[GuestController::class,'getInformation'])->name('information');
-    Route::post('/information',[GuestController::class,'postInformation'])->name('information');
+
+    //Thêm vào Favoủite
+    Route::get('/favourite', [GuestController::class, 'getFavourite'])->name('favourite');
+    // Route::get('/favourite/add/{beatname_slug}', [GuestController::class, 'getAddToFavourite'])->name('favourite.add');
+    Route::get('/favourite/{typename_slug}/{beatname_slug}', [GuestController::class,'getAddToFavourite'])->name('favourite.detail');
+    Route::post('/favourite/{typename_slug}/{beatname_slug}/save', [GuestController::class,'postSaveToFavourite'])->name('favourite.save');
+    
+    ///
+    // Trong routes/web.php
+    Route::get('/beat/{beat_id}/rapper/create', [GuestController::class, 'showProject'])->name('create');
+    Route::post('/beat/{beat_id}/rapper/create', [GuestController::class, 'saveProject'])->name('save');
+
     //Log out
     Route::post('/logout',[GuestController::class,'postLogout'])->name('logout');
  

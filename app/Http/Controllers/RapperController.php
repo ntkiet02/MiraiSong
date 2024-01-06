@@ -42,7 +42,7 @@ class RapperController extends Controller
         $orm->role = $request->role;
         if(!empty($path))
             $orm->image_rapper=$path;
-        $orm->information=$request->infomation;
+        $orm->information=$request->information;
         $orm->save();
 
         // Sau khi thêm thành công thì tự động chuyển về trang danh sách
@@ -80,7 +80,7 @@ class RapperController extends Controller
             $orm->password = Hash::make($request->password);
         if(!empty($path))
             $orm->image_rapper=$path;
-        $orm->information=$request->infomation;
+        $orm->information=$request->information;
         $orm->save();
 
         // Sau khi sửa thành công thì tự động chuyển về trang danh sách

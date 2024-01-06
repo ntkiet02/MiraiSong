@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 @section('content')
 <div class="card">
     <div class="card-header">Add new project</div>

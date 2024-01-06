@@ -30,8 +30,7 @@
             @foreach($lb as $lbtt )
             <div class="grid-sizer"></div>
                 <div class="work__item wide__item set-bg play-button audio-background  " data-setbg="{{ env('APP_URL') . '/storage/app/'.$lbtt->image_beat}}">
-                    <a href="{{route('frontend.beat.detail',['typename_slug'=>$typebeat->typename_slug,'beatname_slug'=>$lbtt->beatname_slug])}}"><i class="fa fa-play"></i> </a>
-                    
+                    <a class="play-btn video-popup" href="{{route('frontend.beat.detail',['typename_slug'=>$typebeat->typename_slug,'beatname_slug'=>$lbtt->beatname_slug])}}"><i class="fa fa-play"></i> </a>         
                     <div class="work__item__hover ">
                         <h4>{{$lbtt->beatname}}/{{$lbtt->Musician->stagename}}</h4>
                         <audio controls>

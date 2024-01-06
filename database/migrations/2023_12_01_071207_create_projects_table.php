@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('rapper_id')->constrained('rapper');
             $table->foreignId('status_id')->constrained('status');
-                       
-            $table->text('lyric');
-            $table->text('recording');     
+            $table->foreignId('beat_id')->constrained('beat');
+            $table->text('projectname')->nullable();
+            $table->text('lyric')->nullable();
+            $table->text('recording')->nullable();     
             $table->string('image_project')->nullable();
             $table->timestamps();
             $table->engine='InnoDB';

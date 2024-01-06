@@ -19,9 +19,9 @@ class Beat extendS Model
     {
         return $this->belongsTo(Musician::class, 'musician_id', 'id');
     }
-    public function ProjectDetail(): HasMany
+    public function Project(): HasMany
     {
-      return $this->hasMany(ProjectDetail::class, 'beat_id', 'id');
+      return $this->hasMany(Project::class, 'beat_id', 'id');
     }
 
 }
