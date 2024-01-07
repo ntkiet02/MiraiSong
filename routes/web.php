@@ -41,7 +41,10 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
 
     Route::get('/{id}/update', [GuestController::class, 'getUpdate'])->name('updateprofile');
     Route::post('/{id}/update', [GuestController::class, 'postUpdate'])->name('updateprofile');
-  
+    
+    Route::get('/project',[GuestController::class,'getProject'])->name('project');
+    Route::get('/project/{rapper_id}',[GuestController::class,'getProject'])->name('project');
+    Route::get('/project/{beatname_slug}/{projectname}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
     // //Log out
 
     Route::post('/logout',[GuestController::class,'postLogout'])->name('logout');

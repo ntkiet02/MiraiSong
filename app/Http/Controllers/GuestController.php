@@ -83,13 +83,26 @@ class GuestController extends Controller
     }
     public function getProject($rapper_id='')
     {
-        $rapper= Rapper::where('rapper_id',$rapper_id)->first();
+        $rapper= Auth::user()->id;
         if(!$rapper)
         {
             abort(404);
         }
-        $lbtorapper=Project::where('project_id', $rapper->id)->get();
-        return view('rapper.home', compact('rapper','lbtorapper'));
+        $lbtorapper=Project::where('rapper_id', $rapper)->get();
+        return view('rapper.project', compact('rapper','lbtorapper'));
+    }
+    public function getProjectdetail($beatname_slug='', $projectname='')
+    {
+        $project=Project::join('beat','project.beat_id','=','beat.id')
+        ->where('beat.beatname_slug',$beatname_slug)
+        ->where('project.projectname',$projectname)
+        ->first();
+
+        if(!$project)
+        {
+            abort(404);
+        }
+        return view('rapper.projectdetail',compact('project'));
     }
     public function postLogout()
     {
