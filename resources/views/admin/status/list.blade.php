@@ -19,11 +19,9 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $value->statusname }}</td>
-                    <td class="text-center"><a href="{{ route('admin.status.update', ['id' => $value->id]) }}"><i
-                                class="fa-light fa-edit"></i>Update</a></td>
+                    <td class="text-center"><a href="{{ route('admin.status.update', ['id' => $value->id]) }}"><i class="bi bi-pencil" style="color: green;"></i></a></td>
                     <td class="text-center"><a href="{{ route('admin.status.delete', ['id' => $value->id]) }}"
-                            onclick="return confirm('Bạn có muốn xóa cái {{ $value->statusname }} không?')"><i
-                                class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
+                            onclick="return confirm('Bạn có muốn xóa cái {{ $value->statusname }} không?')"><i class="bi bi-trash3"></i></a></td>
                 </tr>
                 @endforeach
             </tbody>

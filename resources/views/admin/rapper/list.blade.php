@@ -29,11 +29,9 @@
                     <td>{{ $value->information}}</td>
                     <td>{{ $value->email }}</td>
                     <td>{{ $value->role }}</td>
-                    <td class="text-center"><a href="{{ route('admin.rapper.update', ['id' => $value->id]) }}"><i
-                                class="fa-light fa-edit"></i>Edit</a></td>
+                    <td class="text-center"><a href="{{ route('admin.rapper.update', ['id' => $value->id]) }}"><i class="bi bi-pencil" style="color: green;"></i></a></td>
                     <td class="text-center"><a href="{{ route('admin.rapper.delete', ['id' => $value->id]) }}"
-                            onclick="return confirm('Bạn có muốn xóa thằng {{ $value->name }} không?')"><i
-                                class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
+                            onclick="return confirm('Bạn có muốn xóa thằng {{ $value->name }} không?')"><i class="bi bi-trash3"></i></a></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -29,11 +29,9 @@
                     <td>{{$value->beatname}}</td>   
                     <td class="text-center"><img src="{{ env('APP_URL') . '/storage/app/'.$value->image_beat}}" width="100" class="img-thumbnail" /> </td> 
                     <td><audio src ="{{ env('APP_URL') . '/storage/app/' . $value->file_path }}" type="audio/mp3" controls>  </audio></td>
-                    <td class="text-center"><a href="{{ route('admin.beat.update', ['id' => $value->id]) }}"><i
-                                class="fa-light fa-edit"></i>Edit</a></td>
+                    <td class="text-center"><a href="{{ route('admin.beat.update', ['id' => $value->id]) }}"><i class="bi bi-pencil" style="color: green;"></i></a></td>
                     <td class="text-center"><a href="{{ route('admin.beat.delete', ['id' => $value->id]) }}"
-                            onclick="return confirm('Bạn có muốn xóa cái {{ $value->stagename }} không?')"><i
-                                class="fa-light fa-trash-alt text-danger"></i>Delete</a></td>
+                            onclick="return confirm('Bạn có muốn xóa cái {{ $value->stagename }} không?')"><i class="bi bi-trash3"></i></a></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -62,6 +62,7 @@
                                         <li><a href="{{ route('frontend.beat.type',['typename_slug'=>'lofi'] ) }}">Lofi</a></li>
                                         <li><a href="{{ route('frontend.beat.type',['typename_slug'=>'trap'] ) }}">Trap</a></li>   
                                         <li><a href="{{ route('frontend.beat.type',['typename_slug'=>'indie-rap'] ) }}">Indie-Rap</a></li>                                            
+                                       
                                         <!-- oreach($typebeat as $tb)
                                             <li>
                                                 @if(isset($tb->typename))
@@ -72,8 +73,8 @@
                                             </li>
                                         ndforeach -->
                                     </ul>
-                                </li>
-                                <li><a href="{{route('rapper.project',['rapper_id'=>Auth::user()->id])}}">My Project</a></li>
+                                    </li>
+                                    
                                 @if (Route::has('login'))
                                     @auth
                                     <li>
