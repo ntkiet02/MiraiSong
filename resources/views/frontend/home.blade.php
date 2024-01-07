@@ -8,8 +8,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="hero__text">
-                            <span>D</span>
-                            <h2>X</h2>
+                            <span>“I’m on top of the world - Because of you”</span>
+                            <h2>“All I wanted to do
+                                    Is follow you”</h2>
                             <a href="" class="primary-btn">See more about us</a>
                         </div>
                     </div>
@@ -40,9 +41,6 @@
                         <a class="play-btn video-popup" href="{{route('frontend.beat.detail',['typename_slug'=>$tb->typename_slug,'beatname_slug'=>$b->beatname_slug])}}"><i class="fa fa-play"></i> </a>                       
                         <div class="work__item__hover ">
                             <h4>{{$b->beatname}} /{{$b->Musician->stagename}}</h4>
-                            <!-- <audio controls>
-                                <source src="{{env('APP_URL'). '/storage/app/'.$b->file_path}}" type="audio/mp3">
-                            </audio> -->
                             <a href="{{ route('rapper.create', ['beat_id' => $b->id]) }}">Click Here To Start</a>
                         </div>
                     </div>
