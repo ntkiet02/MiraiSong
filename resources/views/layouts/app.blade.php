@@ -35,26 +35,22 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.typebeat') }}"><i
-                                    class="fa-light fa-fw fa-diagram-project"></i> Type beat</a>
+                            <a class="nav-link" href="{{ route('admin.typebeat') }}"><i class="bi bi-music-note-list"></i> Type beat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.musician') }}"><i
-                                    class="fa-light fa-fw fa-copyright"></i> Musican</a>
+                            <a class="nav-link" href="{{ route('admin.musician') }}"><i class="bi bi-person-video"></i> Musican</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.beat') }}"><i class="fa-light fa-fw fa-box"></i>Beat</a>
+                            <a class="nav-link" href="{{ route('admin.beat') }}"><i class="bi bi-collection-play"></i> Beat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.status') }}"><i
-                                    class="fa-light fa-fw fa-list-check"></i> Status</a>
+                            <a class="nav-link" href="{{ route('admin.status') }}"><i class="bi bi-file-music"></i> Status</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.project') }}"><i
-                                    class="fa-light fa-fw fa-file-invoice"></i>Project</a>
+                            <a class="nav-link" href="{{ route('admin.project') }}"><i class="bi bi-projector"></i> Project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.rapper') }}"><i class="fa-light fa-fw fa-users"></i>Rapper</a>
+                            <a class="nav-link" href="{{ route('admin.rapper') }}"><i class="bi bi-music-player"></i> Rapper</a>
                         </li>
                     </ul>
 
