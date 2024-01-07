@@ -31,7 +31,7 @@
 							
 							<hr class="my-4">
 							<button class="btn btn-outline-primary"><a href="{{route('rapper.updateprofile',['id'=>Auth::user()->id])}}">Update Profile</a></button>
-							<button class="btn btn-outline-primary"><a href="{{route('rapper.home')}}">Back</a></button>
+							<button class="btn btn-outline-primary"><a href="{{route('rapper.home')}}">Back Home</a></button>
 						</div>
 					</div>
 				</div>

@@ -17,7 +17,8 @@ class GuestController extends Controller
         if(Auth::check())
         {
             $rapper = Rapper::find(Auth::user()->id);
-            return view('rapper.home', compact('rapper'));
+            $lbtorapper=Project::where('rapper_id', Auth::user()->id)->get();
+            return view('rapper.home', compact('rapper','lbtorapper'));
         }
         else
             return redirect()->route('rapper.login');

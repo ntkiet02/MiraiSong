@@ -42,7 +42,7 @@
     <!-- Cái củ chuối này là hiển thị quay vòng vòng khi tải trang -->
     <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> 
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
@@ -73,16 +73,24 @@
                                         ndforeach -->
                                     </ul>
                                 </li>
-                                <li><a href="{{route('rapper.project',['rapper_id'=>Auth::user()->id])}}">My Project</a></li>
+                                
                                 @if (Route::has('login'))
                                     @auth
+                                    <li><a href="">Option</a>
+                                    <ul class="dropdown"> 
+                                        <li><a href="{{route('rapper.home')}}">Home of Rapper</a></li>
+                                        <li><a href="{{ route('rapper.project',['rapper_id'=>Auth::user()->id] ) }}">My Project</a></li>
+                                        <li><a href="{{ route('rapper.updateprofile',['id'=>Auth::user()->id] ) }}">My Account</a></li>
+                                    </ul>
+                                    </li>
+
                                     <li>
                                         <div class="testimonial__author">
                                             <div class="testimonial__author__pic">       
                                                 <img src="{{env('APP_URL') . '/storage/app/' . Auth::user()->image_rapper}}">
                                             </div>
                                             <div class="testimonial__author__text">
-                                                <h5><a  href="{{route('rapper.home')}}">{{Auth::user()->name}}</a></h5>
+                                                <h5><a  href="{{route('rapper.updateprofile',['id'=>Auth::user()->id])}}">{{Auth::user()->name}}</a></h5>
                                                 <a class="dropdown-item" href="{{ route('logout') }}" 
                                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
