@@ -44,7 +44,7 @@ class ProjectController extends Controller
 	{
 		$orm = Project::find($id);
 		$orm->delete();
-		$detail = ProjectDetail::where('project_id', $orm->id)->delete();
+		
         // Sau khi xóa thành công thì tự động chuyển về trang danh sách
 		return redirect()->route('admin.project');
 	}

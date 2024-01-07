@@ -27,13 +27,14 @@
     <link rel="stylesheet" href="{{asset('resources/css/style.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('resources/css/paperline.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('resources/css/beatdetail.css')}}" type="text/css">
-    <link type="text/css" rel="stylesheet" href="{{asset('resources/css/found.css')}}" />
-    <link type="text/css" rel="stylesheet" href="{{asset('resources/css/notfind.css')}}" />
+    <link rel="stylesheet" href="{{asset('resources/css/proflie.css')}}" type="text/css">
+    <!-- <link type="text/css" rel="stylesheet" href="{{asset('resources/css/found.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{asset('resources/css/notfind.css')}}" /> -->
     <link rel="stylesheet" type="text/css" href="{{asset('resources/css/profile.css')}}">
     <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
     <script src="https://kit.fontawesome.com/480f370597.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript"></script>
+    <!-- <script type="text/javascript"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 </head>
 <body>
@@ -78,10 +79,10 @@
                                     <li>
                                         <div class="testimonial__author">
                                             <div class="testimonial__author__pic">       
-                                                <img href="#" src="{{env('APP_URL') . '/storage/app/' . Auth::user()->image_rapper}}">
+                                                <img src="{{env('APP_URL') . '/storage/app/' . Auth::user()->image_rapper}}">
                                             </div>
                                             <div class="testimonial__author__text">
-                                                <h5>{{Auth::user()->name}}</h5>
+                                                <h5><a  href="{{route('rapper.home')}}">{{Auth::user()->name}}</a></h5>
                                                 <a class="dropdown-item" href="{{ route('logout') }}" 
                                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

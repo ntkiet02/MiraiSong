@@ -9,6 +9,7 @@ use App\Models\Project;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Beat;
+use Illuminate\Support\Facades\Hash;
 class GuestController extends Controller
 {
     public function getHome()
@@ -21,41 +22,6 @@ class GuestController extends Controller
         else
             return redirect()->route('rapper.login');
     }
-
-    public function getFavourite()
-    {
-        if (Auth::check())      
-            return view('rapper.favourite');
-        else
-            return redirect()->route('rapper.login');
-    }
-    public function getAddToFavourite($typename_slug, $beatname_slug='')
-    {
-        $beat = Beat::join('typebeat', 'beat.typebeat_id', '=', 'typebeat.id')
-        ->where('typebeat.typename_slug', $typename_slug)
-        ->where('beat.beatname_slug', $beatname_slug)
-        ->first();
-         if (!$beat) 
-         {
-             abort(404); // Trả về trang 404 Not Found
-         }        
-         return view('rapper.favourite', compact('beat'));
-        
-    }
-    // public function postSaveToFavourite(Request $request)
-    // {
-    //     $orm=new Project();
-    //     $orm->rapper_id=Auth::user()->id;
-    //     $orm->status_id=1;
-    //     $orm->beat_id=$request->beat_id;
-    //     $orm->projectname=$request->projectname;
-    //     $orm->lyric=$request->lyric;
-    //     $orm->recording='Null';
-    //     $orm->image_project='Null';
-    //     $orm->save();
-    //     return redirect()->route('rapper.home');
-        
-    // }
     public function showProject($beat_id)
     {   
         $beat=Beat::find($beat_id);
@@ -72,7 +38,58 @@ class GuestController extends Controller
             'recording'=>'chưa làm',
             'image_project'=>'chưa làm',
         ]);
+        return redirect()->route('rapper.createsuccess');
+    }
+    public function getSuccess()
+    {
+        return view('rapper.createsuccess');
+    }
+    public function getUpdate($id)
+    {
+        $rapper = Rapper::find($id);
+        return view('rapper.updateprofile', compact('rapper'));
+    }
+
+    public function postUpdate(Request $request, $id)
+    {
+        // Kiểm tra
+        $request->validate([
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:191', 'unique:rapper,email,' . $id],
+            'role' => ['required'],
+            'password' => ['confirmed'],
+        ]);
+        $path='';
+        if($request->hasFile('image_rapper'))
+        {
+            $extension = $request->file('image_rapper')->extension();
+            $filename = Str::slug($request->beatname, '-') . '.' . $extension;
+            $path = Storage::putFileAs('Rapper', $request->file('image_rapper'), $filename);
+        }
+        $orm = Rapper::find($request->id);
+        $orm->name = $request->name;
+        $orm->username = Str::before($request->email, '@');
+        $orm->email = $request->email;
+        $orm->role = $request->role;
+        if (!empty($request->password))
+            $orm->password = Hash::make($request->password);
+        if(!empty($path))
+            $orm->image_rapper=$path;
+        $orm->information=$request->information;
+        $orm->save();
+
+        // Sau khi sửa thành công thì tự động chuyển về trang danh sách
         return redirect()->route('rapper.home');
+    }
+    public function getProject($rapper_id='')
+    {
+        $rapper= Rapper::where('rapper_id',$rapper_id)->first();
+        if(!$rapper)
+        {
+            abort(404);
+        }
+        $lbtorapper=Project::where('project_id', $rapper->id)->get();
+        return view('rapper.home', compact('rapper','lbtorapper'));
     }
     public function postLogout()
     {

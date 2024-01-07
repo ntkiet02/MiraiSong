@@ -24,10 +24,6 @@ Route::name('frontend.')->group(function(){
     Route::get('/beat/{typename_slug}/{beatname_slug}', [HomeController::class,'getBeatDetail'])->name('beat.detail');
     //Xem video da luu
      //Trang beat
-    Route::get('/viewproject', [HomeController::class,'getViewProject'])->name('viewproject');
-    Route::get('/viewproject/{name}', [HomeController::class,'getViewProject'])->name('viewproject.type');    
-    Route::get('/viewproject/{name}/{nameprojectdetail}', [HomeController::class,'getViewProjectDetail'])->name('viewproject.detail');
-    //Bổ sung các trang con sau
 });
 //Guest
 Route::get('/guest/register', [HomeController::class, 'getRegister'])->name('rapper.register');
@@ -38,18 +34,16 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
     Route::get('/', [GuestController::class, 'getHome'])->name('home');
     Route::get('/home', [GuestController::class, 'getHome'])->name('home');
 
-    //Thêm vào Favoủite
-    Route::get('/favourite', [GuestController::class, 'getFavourite'])->name('favourite');
-    // Route::get('/favourite/add/{beatname_slug}', [GuestController::class, 'getAddToFavourite'])->name('favourite.add');
-    Route::get('/favourite/{typename_slug}/{beatname_slug}', [GuestController::class,'getAddToFavourite'])->name('favourite.detail');
-    Route::post('/favourite/{typename_slug}/{beatname_slug}/save', [GuestController::class,'postSaveToFavourite'])->name('favourite.save');
-    
-    ///
     // Trong routes/web.php
     Route::get('/beat/{beat_id}/rapper/create', [GuestController::class, 'showProject'])->name('create');
     Route::post('/beat/{beat_id}/rapper/create', [GuestController::class, 'saveProject'])->name('save');
+    Route::get('/createsuccess', [GuestController::class, 'getSuccess'])->name('createsuccess');
 
-    //Log out
+    Route::get('/{id}/update', [GuestController::class, 'getUpdate'])->name('updateprofile');
+    Route::post('/{id}/update', [GuestController::class, 'postUpdate'])->name('updateprofile');
+  
+    // //Log out
+
     Route::post('/logout',[GuestController::class,'postLogout'])->name('logout');
  
 });

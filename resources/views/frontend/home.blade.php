@@ -43,7 +43,7 @@
                             <!-- <audio controls>
                                 <source src="{{env('APP_URL'). '/storage/app/'.$b->file_path}}" type="audio/mp3">
                             </audio> -->
-                            <a href="{{ route('rapper.create', ['beat_id' => $b->id]) }}">Click Here</a>
+                            <a href="{{ route('rapper.create', ['beat_id' => $b->id]) }}">Click Here To Start</a>
                         </div>
                     </div>
                 @endforeach

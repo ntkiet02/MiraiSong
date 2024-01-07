@@ -33,9 +33,10 @@
                     <a class="play-btn video-popup" href="{{route('frontend.beat.detail',['typename_slug'=>$typebeat->typename_slug,'beatname_slug'=>$lbtt->beatname_slug])}}"><i class="fa fa-play"></i> </a>         
                     <div class="work__item__hover ">
                         <h4>{{$lbtt->beatname}}/{{$lbtt->Musician->stagename}}</h4>
-                        <audio controls>
+                        <!-- <audio controls>
                             <source src="{{ env('APP_URL') . '/storage/app/' . $lbtt->file_path }}" type="audio/mp3">
-                        </audio>
+                        </audio> -->
+                        <a href="{{ route('rapper.create', ['beat_id' => $lbtt->id]) }}">Click Here To Start</a>
                     </div>
                 </div>
             @endforeach
