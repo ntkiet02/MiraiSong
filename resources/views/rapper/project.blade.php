@@ -36,24 +36,25 @@
 				<div class="col-lg-8">
 					<div class="row">
 						@foreach($lbtorapper as $pr)					
-						<div class="col-sm-12">
-							<div class="card">
+						<div  style="height:200px" class="col-sm-12">
+							<div  style="height:100%" class="card">
 								<div class="card-body" >
 									<h5 class="d-flex align-items-center mb-3">
-										<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">{{$pr->projectname}}</a>								
-									</h5>				                    
+										<span class="play-btn video-popup">{{$pr->projectname}}</span>								
+										<button style="margin-left: 65%;" class="btn btn-outline-primary">
+											<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">View</a>
+										</button>
+										<button style="margin-left: 1%;" class="btn btn-outline-primary">
+											<a href="{{route('rapper.projectupdate',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Edit</a>
+										</button>
+										<button style="margin-left: 1%;" class="btn btn-outline-primary">
+											<a href="{{route('rapper.projectdelete',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Delete</a>
+										</button>
+									</h5>	
 										<img style="height:100px; width:200px;" src="{{env('APP_URL') . '/storage/app/' . $pr->Beat->image_beat}}"></img>				
 										<textarea style="height:50px; width:500px;">{{$pr->lyric}}</textarea>
 								</div>
-								<hr class="my-4">
-								<button class="btn btn-outline-primary"><a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">View</a></button>
-								<button class="btn btn-outline-primary">
-									<a href="{{route('rapper.projectupdate',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Edit</a>
-								</button>
-								<button class="btn btn-outline-primary">
-									<a href="{{route('rapper.projectdelete',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Delete</a>
-								</button>
-								<a  style="text-align:right">{{$pr->created_at}}</a>
+								<a style="text-align:right">Viết vào: {{$pr->created_at}}</a>
 							</div>
 						</div>		
 						@endforeach
