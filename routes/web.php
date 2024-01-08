@@ -48,8 +48,8 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
     Route::get('/{beatname_slug}/{projectname}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
 
     Route::get('delete/{beatname_slug}/{projectname}',[GuestController::class,'deleteProject'])->name('projectdelete');
-    Route::get('update/{beatname_slug}/{projectname}',[GuestController::class,'getUpdateProject'])->name('projectupdate');
-    Route::post('update/{beatname_slug}/{projectname}',[GuestController::class,'postUpdateProject'])->name('projectupdate');
+    Route::get('/update/{beatname_slug}/{projectname}',[GuestController::class,'getUpdateProject'])->name('projectupdate');
+    Route::post('/update/{beatname_slug}/{projectname}',[GuestController::class,'postUpdateProject'])->name('projectupdate');
 
     
 

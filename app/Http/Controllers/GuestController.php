@@ -84,13 +84,11 @@ class GuestController extends Controller
         $project=Project::join('beat','project.beat_id','=','beat.id')
         ->where('beat.beatname_slug',$beatname_slug)
         ->where('project.projectname',$projectname)
-        ->first();
-        
+        ->delete();
         if(!$project)
         {
             abort(404);
         }
-        $project->delete();
         return redirect()->route('rapper.home');
     }
     //Update Profile
