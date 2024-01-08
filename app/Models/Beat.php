@@ -10,6 +10,14 @@ class Beat extendS Model
 {
     use HasFactory;
     protected $table ='beat';
+    protected $fillable = [
+        'typebeat_id', 
+        'musician_id',
+        'beat_id',
+        'imagebeat',
+        'filepath',
+
+    ];
     public function TypeBeat(): BelongsTo
     {
         return $this->belongsTo(TypeBeat::class, 'typebeat_id', 'id');

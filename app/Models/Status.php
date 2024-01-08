@@ -10,6 +10,10 @@ class Status extends Model
 {
     use HasFactory;
     protected $table = 'status';
+    protected $fillable = [
+        'status_id',
+ 
+    ];
     public function Project(): HasMany
     {
         return $this->hasMany(Project::class, 'status_id', 'id');
