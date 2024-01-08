@@ -43,8 +43,7 @@ class ProjectController extends Controller
 	public function getDelete($id)
 	{
 		$orm = Project::find($id);
-		$orm->delete();
-		
+		$orm->delete();	
         // Sau khi xóa thành công thì tự động chuyển về trang danh sách
 		return redirect()->route('admin.project');
 	}

@@ -9,6 +9,7 @@ use App\Models\Project;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Beat;
+use App\Models\Status;
 use Illuminate\Support\Facades\Hash;
 class GuestController extends Controller
 {
@@ -41,16 +42,63 @@ class GuestController extends Controller
         ]);
         return redirect()->route('rapper.createsuccess');
     }
-    public function getSuccess()
+      public function getSuccess()
     {
         return view('rapper.createsuccess');
     }
+    public function getUpdateProject($beatname_slug='', $projectname='')
+    {
+        $project=Project::join('beat','project.beat_id','=','beat.id')
+        ->where('beat.beatname_slug',$beatname_slug)
+        ->where('project.projectname',$projectname)
+        ->first();
+        if(!$project)
+        {
+            abort(404);
+        }
+        $status=Status::all();
+        return view('rapper.update',compact('project','status'));
+        // return dd($project);
+    }
+    public function postUpdateProject(Request $request,$beatname_slug='', $projectname='')
+    {
+        $project=Project::join('beat','project.beat_id','=','beat.id')
+        ->where('beat.beatname_slug',$beatname_slug)
+        ->where('project.projectname',$projectname)
+        ->first()->update([
+            'rapper_id'=>Auth::user()->id,
+            'status_id'=>1,
+            'beat_id'=>1,
+            'projectname'=>$request->input('projectname'),
+            'lyric'=>$request->input('lyric'),
+            'recording'=>'chưa làm',
+            'image_project'=>'chưa làm',
+                
+        ]);
+        // return redirect()->route('rapper.createsuccess');
+        
+       
+    }
+    public function deleteProject($beatname_slug='', $projectname='')
+    {
+        $project=Project::join('beat','project.beat_id','=','beat.id')
+        ->where('beat.beatname_slug',$beatname_slug)
+        ->where('project.projectname',$projectname)
+        ->first();
+        
+        if(!$project)
+        {
+            abort(404);
+        }
+        $project->delete();
+        return redirect()->route('rapper.home');
+    }
+    //Update Profile
     public function getUpdate($id)
     {
         $rapper = Rapper::find($id);
         return view('rapper.updateprofile', compact('rapper'));
     }
-
     public function postUpdate(Request $request, $id)
     {
         // Kiểm tra
@@ -109,4 +157,6 @@ class GuestController extends Controller
     {
         return redirect()->route('frontend.home');
     }
+
+    
 }

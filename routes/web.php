@@ -10,6 +10,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\BeatController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\AdminController;
+use App\Http\Middleware\Guest;
 
 //Đăng ký đăng nhập, quên mật khẩu
 
@@ -38,14 +39,19 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
     Route::get('/beat/{beat_id}/rapper/create', [GuestController::class, 'showProject'])->name('create');
     Route::post('/beat/{beat_id}/rapper/create', [GuestController::class, 'saveProject'])->name('save');
     Route::get('/createsuccess', [GuestController::class, 'getSuccess'])->name('createsuccess');
-
+    // Trang hồ sơ
     Route::get('/{id}/update', [GuestController::class, 'getUpdate'])->name('updateprofile');
     Route::post('/{id}/update', [GuestController::class, 'postUpdate'])->name('updateprofile');
+    // Xem project
+    Route::get('/',[GuestController::class,'getProject'])->name('project');
+    Route::get('/{rapper_id}',[GuestController::class,'getProject'])->name('project');
+    Route::get('/{beatname_slug}/{projectname}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
+
+    Route::get('delete/{beatname_slug}/{projectname}',[GuestController::class,'deleteProject'])->name('projectdelete');
+    Route::get('update/{beatname_slug}/{projectname}',[GuestController::class,'getUpdateProject'])->name('projectupdate');
+    Route::post('update/{beatname_slug}/{projectname}',[GuestController::class,'postUpdateProject'])->name('projectupdate');
+
     
-    Route::get('/project',[GuestController::class,'getProject'])->name('project');
-    Route::get('/project/{rapper_id}',[GuestController::class,'getProject'])->name('project');
-    Route::get('/project/{beatname_slug}/{projectname}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
-    // //Log out
 
     Route::post('/logout',[GuestController::class,'postLogout'])->name('logout');
  

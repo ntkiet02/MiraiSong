@@ -73,13 +73,7 @@
                                             </li>
                                         ndforeach -->
                                     </ul>
-<<<<<<< HEAD
-                                    </li>
-                                    
-=======
                                 </li>
-                                
->>>>>>> 425119fbc324f4377362dab1bb66b7c9256be781
                                 @if (Route::has('login'))
                                     @auth
                                     <li><a href="">Option</a>

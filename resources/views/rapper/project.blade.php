@@ -27,12 +27,10 @@
 									<h4>{{Auth::user()->name}}</h4>
 									<p class="text-muted font-size-sm">{{Auth::user()->information}}</p>
 								</div>
-							</div>
-							
-							<hr class="my-4">
+							</div>											
+						</div>
 							<button class="btn btn-outline-primary"><a href="{{route('rapper.updateprofile',['id'=>Auth::user()->id])}}">Update Profile</a></button>
 							<button class="btn btn-outline-primary"><a href="{{route('rapper.home')}}">Back Home</a></button>
-						</div>
 					</div>
 				</div>
 				<div class="col-lg-8">
@@ -42,12 +40,20 @@
 							<div class="card">
 								<div class="card-body" >
 									<h5 class="d-flex align-items-center mb-3">
-										<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">{{$pr->projectname}}</a>	
+										<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">{{$pr->projectname}}</a>								
 									</h5>				                    
 										<img style="height:100px; width:200px;" src="{{env('APP_URL') . '/storage/app/' . $pr->Beat->image_beat}}"></img>				
 										<textarea style="height:50px; width:500px;">{{$pr->lyric}}</textarea>
 								</div>
-								<a style="text-align:right">{{$pr->created_at}}</a>
+								<hr class="my-4">
+								<button class="btn btn-outline-primary"><a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">View</a></button>
+								<button class="btn btn-outline-primary">
+									<a href="{{route('rapper.projectupdate',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Edit</a>
+								</button>
+								<button class="btn btn-outline-primary">
+									<a href="{{route('rapper.projectdelete',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Delete</a>
+								</button>
+								<a  style="text-align:right">{{$pr->created_at}}</a>
 							</div>
 						</div>		
 						@endforeach
