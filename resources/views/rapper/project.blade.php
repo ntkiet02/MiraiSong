@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/breadcrumb-bg.jpg')}}">
+<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/nav.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -40,9 +40,9 @@
 							<div class="card">
 								<div class="card-body" >
 									<h5 class="d-flex align-items-center mb-3">
-										<div style="width: 100px;"><a>{{$pr->projectname}}</a></div>								
-										<button style="margin-left: 60%;" class="btn btn-outline-primary">
-											<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">View</a>
+										<div style="width: 500px;"><a>{{$pr->projectname}}</a></div>								
+										<button style="margin-left: 20%;" class="btn btn-outline-primary">
+											<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug'=> $pr->Beat->beatname_slug,'projectname'=> $pr->projectname])}}">View</a>
 										</button>
 										<button style="margin-left: 1%;" class="btn btn-outline-primary">
 											<a href="{{route('rapper.projectupdate',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Edit</a>

@@ -38,7 +38,7 @@
         </div>
         <script src="{{asset('resources/js/paperline.js')}}"></script>
 	</div>
-    <button style="margin-left:1100px" class="btn btn-primary" type="submit">Save</button>
+    <button style="margin-left:48%" class="btn btn-primary" type="submit">Save</button>
 </section>
 
             

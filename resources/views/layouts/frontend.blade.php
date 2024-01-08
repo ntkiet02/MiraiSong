@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="100x100" href="{{ asset('resources/img/logo.png')}}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('resources/img/logo.png') }}" />
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +51,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{ route('frontend.home') }}"><img src="{{asset('resources/img/miku.png')}}" size="20px" alt=""></a>
+                        <a href="{{ route('frontend.home') }}"><img src="{{asset('resources/img/miku.png')}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -85,7 +87,7 @@
                                             </ul>
                                             </li>
                                         @elseif(Auth::user()->role == 'admin')
-                                            <li><a href="{{route('admin.home')}}">Home</a>
+                                            <li><a href="{{route('admin.home')}}">Manager</a>
                                         @else
                                             <li><a href="#">?????</a>
                                         @endif
@@ -175,11 +177,11 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="footer__copyright__text">Copyright &copy;
+                        <p class="footer__copyright__text">Copyright &copy by Nguyễn Trí Kiệt;
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                            All rights reserved | This temlate is made with <i class="fa fa-heart-o"
                                 aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

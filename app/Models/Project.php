@@ -16,9 +16,9 @@ class Project extends Model
         'beat_id',
         'status_id',
         'projectname',
+        'projectname_slug',
         'lyric',
-        'recording',
-        'imge_project',
+        
         // ... các trường khác
     ];
     public function Rapper(): BelongsTo

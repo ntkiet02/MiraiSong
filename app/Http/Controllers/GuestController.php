@@ -135,7 +135,7 @@ class GuestController extends Controller
         $lbtorapper=Project::where('rapper_id', $rapper)->get();
         return view('rapper.project', compact('rapper','lbtorapper'));
     }
-    public function getProjectdetail($beatname_slug='', $projectname='')
+    public function getProjectDetail($beatname_slug='', $projectname='')
     {
         $project=Project::join('beat','project.beat_id','=','beat.id')
         ->where('beat.beatname_slug',$beatname_slug)
@@ -148,6 +148,21 @@ class GuestController extends Controller
         }
         return view('rapper.projectdetail',compact('project'));
     }
+    // public function getProjectDetail($beatname_slug = '', $projectname = '', $name='')
+    // {
+    //     $project = Project::join('beat', 'project.beat_id', '=', 'beat.id')
+    //         ->join('rapper', 'project.rapper_id', '=', 'rapper.id') // Thêm kết nối với bảng rapper
+    //         ->where('beat.beatname_slug', $beatname_slug)
+    //         ->where('project.projectname', $projectname)
+    //         ->where('rapper.name', $name) // Thêm điều kiện cho id của rapper
+    //         ->first();
+        
+    //     if(!$project)
+    //     {
+    //         abort(404);
+    //     }
+    //     return view('rapper.projectdetail',compact('project'));
+    // }
     public function postLogout()
     {
         return redirect()->route('frontend.home');

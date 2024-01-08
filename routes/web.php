@@ -45,7 +45,7 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
     // Xem project
     Route::get('/',[GuestController::class,'getProject'])->name('project');
     Route::get('/{rapper_id}',[GuestController::class,'getProject'])->name('project');
-    Route::get('/{beatname_slug}/{projectname}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
+    Route::get('/{beatname_slug}/{projectname}}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
 
     Route::get('delete/{beatname_slug}/{projectname}',[GuestController::class,'deleteProject'])->name('projectdelete');
     Route::get('/update/{beatname_slug}/{projectname}',[GuestController::class,'getUpdateProject'])->name('projectupdate');

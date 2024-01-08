@@ -33,7 +33,7 @@
                 <div id="margin">Title:    <input id="title" type="text" name="projectname"></div>
                 <textarea placeholder="Writting any thing" id="text" name="lyric" rows="4" style="overflow: hidden; word-beatap: break-word; resize: none; height: 160px; width: 1100px; "></textarea>  
                 <br>              
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button  style="margin-left:48%" class="btn btn-primary" type="submit">Save</button>
             </form>
         </div>
         <script src="{{asset('resources/js/paperline.js')}}"></script>
