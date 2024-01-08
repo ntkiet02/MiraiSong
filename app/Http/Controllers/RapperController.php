@@ -48,13 +48,11 @@ class RapperController extends Controller
         // Sau khi thêm thành công thì tự động chuyển về trang danh sách
         return redirect()->route('admin.rapper');
     }
-
     public function getUpdate($id)
     {
         $rapper = Rapper::find($id);
         return view('admin.rapper.update', compact('rapper'));
     }
-
     public function postUpdate(Request $request, $id)
     {
         // Kiểm tra
@@ -86,7 +84,6 @@ class RapperController extends Controller
         // Sau khi sửa thành công thì tự động chuyển về trang danh sách
         return redirect()->route('admin.rapper');
     }
-
     public function getDelete($id)
     {
         $orm = Rapper::find($id);

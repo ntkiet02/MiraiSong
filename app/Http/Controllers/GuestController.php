@@ -65,17 +65,14 @@ class GuestController extends Controller
         $project=Project::join('beat','project.beat_id','=','beat.id')
         ->where('beat.beatname_slug',$beatname_slug)
         ->where('project.projectname',$projectname)
-        ->first()->update([
-            'rapper_id'=>Auth::user()->id,
-            'status_id'=>1,
-            'beat_id'=>1,
+        ->update([
             'projectname'=>$request->input('projectname'),
             'lyric'=>$request->input('lyric'),
             'recording'=>'chưa làm',
             'image_project'=>'chưa làm',
                 
         ]);
-        // return redirect()->route('rapper.createsuccess');
+        return redirect()->route('rapper.createsuccess');
         
        
     }

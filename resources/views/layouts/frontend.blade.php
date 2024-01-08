@@ -75,34 +75,38 @@
                                     </ul>
                                 </li>
                                 @if (Route::has('login'))
-                                    @auth
-                                    <li><a href="">Option</a>
-                                    <ul class="dropdown"> 
-                                        <li><a href="{{route('rapper.home')}}">Home of Rapper</a></li>
-                                        <li><a href="{{ route('rapper.project',['rapper_id'=>Auth::user()->id] ) }}">My Project</a></li>
-                                        <li><a href="{{ route('rapper.updateprofile',['id'=>Auth::user()->id] ) }}">My Account</a></li>
-                                    </ul>
-                                    </li>
-
-                                    <li>
-                                        <div class="testimonial__author">
-                                            <div class="testimonial__author__pic">       
-                                                <img src="{{env('APP_URL') . '/storage/app/' . Auth::user()->image_rapper}}">
+                                    @auth 
+                                        @if(Auth::user()->role == 'rapper')
+                                            <li><a href="">Option</a>
+                                            <ul class="dropdown"> 
+                                                <li><a href="{{route('rapper.home')}}">My Home</a></li>
+                                                <li><a href="{{ route('rapper.project',['rapper_id'=>Auth::user()->id] ) }}">My Project</a></li>
+                                                <li><a href="{{ route('rapper.updateprofile',['id'=>Auth::user()->id] ) }}">My Account</a></li>
+                                            </ul>
+                                            </li>
+                                        @elseif(Auth::user()->role == 'admin')
+                                            <li><a href="{{route('admin.home')}}">Home</a>
+                                        @else
+                                            <li><a href="#">?????</a>
+                                        @endif
+                                        <li>
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author__pic">       
+                                                    <img src="{{env('APP_URL') . '/storage/app/' . Auth::user()->image_rapper}}">
+                                                </div>
+                                                <div class="testimonial__author__text">
+                                                    <h5><a  href="{{route('rapper.updateprofile',['id'=>Auth::user()->id])}}">{{Auth::user()->name}}</a></h5>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}" 
+                                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="testimonial__author__text">
-                                                <h5><a  href="{{route('rapper.updateprofile',['id'=>Auth::user()->id])}}">{{Auth::user()->name}}</a></h5>
-                                                <a class="dropdown-item" href="{{ route('logout') }}" 
-                                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                    @csrf
-                                                </form>
- 
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
                                     @else
                                     <!-- <li><a href="{{ route('login') }}">Log in</a> </li> -->
                                     <li><a href="{{ route('rapper.login') }}">Log in</a> </li>

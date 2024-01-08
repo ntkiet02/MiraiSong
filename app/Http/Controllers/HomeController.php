@@ -35,7 +35,6 @@ class HomeController extends Controller
         // return view('frontend.home' ,  dd($typebeat));
         return view('frontend.home', compact('typebeat','musician'), compact('beat'));
     }
-
     public function getBeat($typename_slug='')
     {
         $typebeat= TypeBeat::where('typename_slug',$typename_slug)->first();
@@ -58,8 +57,7 @@ class HomeController extends Controller
             abort(404); // Trả về trang 404 Not Found
         }        
         return view('frontend.beatdetail', compact('beat'));
-    }
-    
+    }  
     public function getRegister()
     {
         // return view('user.register');

@@ -22,7 +22,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm bg-info">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('frontend.home') }}">
+                <a class="navbar-brand" href="{{ route('admin.home') }}">
                     <i class="fa-light fa-cart-shopping"></i>{{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

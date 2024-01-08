@@ -52,13 +52,22 @@
 										<input type="text" class="form-control" id="email" name="email" value ="{{$rapper->email}}" required></input>
 									</div>
 									<div class="mb-3">
+										<label class="form-label" for="information">Information</label>
+										<input type="text" class="form-control" id="information" name ="information" required></input>
+									</div>
+									
+									<hr class="my-4">
+									<div class="mb-3">
 										<label class="form-label" for="role"> Role </label>
 										<select class="form-select" id="role" name="role" required>
 											<option value="">---Chooses--</option>
 											<option value="rapper" {{($rapper->role == 'rapper')?'selected' : ''}} > Rapper</option>
 										</select>
 									</div>
-									<hr class="my-4">
+									<div class="mb-3 form-check">
+										<input class="form-check-input" type="checkbox" id="change_password_checkbox" name="change_password_checkbox" />
+										<label class="form-check-label" for="change_password_checkbox">Change password</label>
+									</div>
 									<div id="change_password_group">
 										<div class="mb-3">
 											<label class="form-label" for="password">New Password</label>
@@ -74,10 +83,6 @@
 												<div class="invalid-feedback"><strong>{{ $message }}</strong></div>
 												@enderror
 										</div>
-									</div>
-									<div class="mb-3">
-										<label class="form-label" for="information">Information</label>
-										<input type="text" class="form-control" id="information" name ="information" required></input>
 									</div>
 									<button type="submit" class="btn btn-primary">update</button>
 								</form>
