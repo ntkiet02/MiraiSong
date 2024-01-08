@@ -34,14 +34,14 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<div class="row">
-						@foreach($lbtorapper as $pr)					
-						<div  style="height:200px" class="col-sm-12">
-							<div  style="height:100%" class="card">
+					<div class="row">		
+						@foreach($lbtorapper as $pr)		
+						<div class="col-sm-12">
+							<div class="card">
 								<div class="card-body" >
 									<h5 class="d-flex align-items-center mb-3">
-										<span class="play-btn video-popup">{{$pr->projectname}}</span>								
-										<button style="margin-left: 65%;" class="btn btn-outline-primary">
+										<div style="width: 100px;"><a>{{$pr->projectname}}</a></div>								
+										<button style="margin-left: 60%;" class="btn btn-outline-primary">
 											<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">View</a>
 										</button>
 										<button style="margin-left: 1%;" class="btn btn-outline-primary">

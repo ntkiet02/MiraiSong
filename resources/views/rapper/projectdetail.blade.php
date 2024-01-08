@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">  
                 <div class="breadcrumb__text">
+                <h1 style="font-size: 80px; color:aqua;"> {{$project->projectname}}</h1>
 					<audio id="song">
 						<source src="{{ env('APP_URL') . '/storage/app/' . $project->Beat->file_path }}" type="audio/mp3">
 					</audio>
@@ -26,7 +27,6 @@
 	<div class="container">
         <div id="beatapper">
             <form id="paper" method="post" enctype="multipart/form-data">
-                <div id="margin">Title:    <input id="title" type="text" name="projectname"></div>
                 <textarea placeholder="Writting any thing" id="text" name="lyric" rows="4" style="overflow: hidden; word-beatap: break-word; resize: none; height: 160px; width: 700px; "> {{$project->lyric}}</textarea>  
             </form>
         </div>
