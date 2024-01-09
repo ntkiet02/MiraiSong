@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('content')
 
-<form id="paper" action="{{route('rapper.projectupdate',['beatname_slug' => $project->Beat->beatname_slug, 'projectname'=>$project->projectname])}}" method="post" enctype="multipart/form-data">
+<form id="paper" action="{{route('rapper.projectupdate',['rapper_id'=>Auth::user()->id,'beatname_slug' => $project->Beat->beatname_slug, 'projectname_slug'=>$project->projectname_slug])}}" method="post" enctype="multipart/form-data">
 @csrf             
 <div class="grid-sizer"></div>
 <div class="breadcrumb-option spad set-bg" data-setbg="{{ env('APP_URL') . '/storage/app/'.$project->Beat->image_beat}}">

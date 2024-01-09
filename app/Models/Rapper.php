@@ -42,6 +42,10 @@ class Rapper extends Authenticatable
     {
         return $this->hasMany(Project:: class, 'rapper_id', 'id');
     }
+    public function Comment(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'rapper_id','id');
+    }
 }
 class CustomResetPasswordNotification extends ResetPassword
     {

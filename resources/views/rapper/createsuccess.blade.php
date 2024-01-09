@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/nav.jpg')}}">
+<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/navbar.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">  
@@ -11,9 +11,9 @@
         </div>
     </div>
 </div>
-<script src="{{asset('resources/js/beatdetail.js')}}"></script>
+
 <!-- Call To Action Section Begin -->
-<section class="callto spad set-bg" data-setbg="{{asset('resources/img/a.jpg')}}">
+<section class="callto spad set-bg" data-setbg="{{asset('resources/img/breadcrumb-bg.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">

@@ -10,6 +10,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\BeatController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CommentController;
 use App\Http\Middleware\Guest;
 
 //Đăng ký đăng nhập, quên mật khẩu
@@ -36,22 +37,25 @@ Route::prefix('guest')->name('rapper.')->middleware(['auth', 'rapper'])->group(f
     Route::get('/home', [GuestController::class, 'getHome'])->name('home');
 
     // Trong routes/web.php
-    Route::get('/beat/{beat_id}/rapper/create', [GuestController::class, 'showProject'])->name('create');
-    Route::post('/beat/{beat_id}/rapper/create', [GuestController::class, 'saveProject'])->name('save');
+    Route::get('/create/{beat_id}', [GuestController::class, 'showProject'])->name('create');
+    Route::post('/create/{beat_id}', [GuestController::class, 'saveProject'])->name('save');
     Route::get('/createsuccess', [GuestController::class, 'getSuccess'])->name('createsuccess');
+
     // Trang hồ sơ
-    Route::get('/{id}/update', [GuestController::class, 'getUpdate'])->name('updateprofile');
-    Route::post('/{id}/update', [GuestController::class, 'postUpdate'])->name('updateprofile');
+    Route::get('/update/{id}', [GuestController::class, 'getUpdate'])->name('updateprofile');
+    Route::post('/update/{id}', [GuestController::class, 'postUpdate'])->name('updateprofile');
     // Xem project
     Route::get('/',[GuestController::class,'getProject'])->name('project');
-    Route::get('/{rapper_id}',[GuestController::class,'getProject'])->name('project');
-    Route::get('/{beatname_slug}/{projectname}}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
+    Route::get('/project/{rapper_id}',[GuestController::class,'getProject'])->name('project');
+    Route::get('/project/{rapper_id}/{beatname_slug}/{projectname_slug}}',[GuestController::class,'getProjectDetail'])->name('projectdetail');
 
-    Route::get('delete/{beatname_slug}/{projectname}',[GuestController::class,'deleteProject'])->name('projectdelete');
-    Route::get('/update/{beatname_slug}/{projectname}',[GuestController::class,'getUpdateProject'])->name('projectupdate');
-    Route::post('/update/{beatname_slug}/{projectname}',[GuestController::class,'postUpdateProject'])->name('projectupdate');
-
-    
+    Route::get('/delete/{rapper_id}/{beatname_slug}/{projectname_slug}',[GuestController::class,'deleteProject'])->name('projectdelete');
+    Route::get('/update/{rapper_id}/{beatname_slug}/{projectname_slug}',[GuestController::class,'getUpdateProject'])->name('projectupdate');
+    Route::post('/update/{rapper_id}/{beatname_slug}/{projectname_slug}',[GuestController::class,'postUpdateProject'])->name('projectupdate');
+    //
+    // Binh luan
+    Route::get('/binhluan/{beat_id}', [GuestController::class, 'getBinhLuan'])->name('comment');
+    Route::post('/binhluan/{beat_id}', [GuestController::class, 'postBinhLuan'])->name('commentsave');
 
     Route::post('/logout',[GuestController::class,'postLogout'])->name('logout');
  
@@ -91,11 +95,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/status/delete/{id}', [StatusController::class, 'getDelete'])->name('status.delete');
     // Quản lý Đơn hàng
     Route::get('/project', [ProjectController::class, 'getList'])->name('project');
-    Route::get('/project/add', [ProjectController::class, 'getAdd'])->name('project.add');
-    Route::post('/project/add', [ProjectController::class, 'postAdd'])->name('project.add');
-    Route::get('/project/update/{id}', [ProjectController::class, 'getUpdate'])->name('project.update');
-    Route::post('/project/update/{id}', [ProjectController::class, 'postUpdate'])->name('project.update');
-    Route::get('/project/delete/{id}', [ProjectController::class, 'getDelete'])->name('project.delete');
+    // Route::get('/project/add', [ProjectController::class, 'getAdd'])->name('project.add');
+    // Route::post('/project/add', [ProjectController::class, 'postAdd'])->name('project.add');
+    // Route::get('/project/update/{id}', [ProjectController::class, 'getUpdate'])->name('project.update');
+    // Route::post('/project/update/{id}', [ProjectController::class, 'postUpdate'])->name('project.update');
+    // Route::get('/project/delete/{id}', [ProjectController::class, 'getDelete'])->name('project.delete');
+
+
     // Quản lý Tài khoản người dùng
     Route::get('/rapper', [RapperController::class, 'getList'])->name('rapper');
     Route::get('/rapper/add', [RapperController::class, 'getAdd'])->name('rapper.add');
@@ -103,6 +109,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/rapper/update/{id}', [RapperController::class, 'getUpdate'])->name('rapper.update');
     Route::post('/rapper/update/{id}', [RapperController::class, 'postUpdate'])->name('rapper.update');
     Route::get('/rapper/delete/{id}', [RapperController::class, 'getDelete'])->name('rapper.delete');
+
+    Route::get('/binhluanbaiviet', [CommentController::class, 'getDanhSach'])->name('binhluanbaiviet');
+    Route::get('/binhluanbaiviet/xoa/{id}', [CommentController::class, 'getXoa'])->name('binhluanbaiviet.xoa');
+    Route::get('/binhluanbaiviet/kiemduyet/{id}', [CommentController::class, 'getKiemDuyet'])->name('binhluanbaiviet.kiemduyet');
+    Route::get('/binhluanbaiviet/kichhoat/{id}', [CommentController::class, 'getKichHoat'])->name('binhluanbaiviet.kichhoat');
+
 });
 
 

@@ -52,6 +52,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.rapper') }}"><i class="bi bi-music-player"></i> Rapper</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.binhluanbaiviet') }}"><i class="bi bi-music-player"></i>Comments</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

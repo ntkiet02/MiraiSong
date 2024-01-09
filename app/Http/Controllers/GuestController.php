@@ -9,6 +9,7 @@ use App\Models\Project;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Beat;
+use App\Models\Comment;
 use App\Models\Status;
 use Illuminate\Support\Facades\Hash;
 class GuestController extends Controller
@@ -36,9 +37,8 @@ class GuestController extends Controller
             'status_id'=>1,
             'beat_id'=>$beat_id,
             'projectname'=>$request->input('projectname'),
+            'projectname_slug'=>Str::slug($request->input('projectname'), '-'),
             'lyric'=>$request->input('lyric'),
-            'recording'=>'chưa làm',
-            'image_project'=>'chưa làm',
         ]);
         return redirect()->route('rapper.createsuccess');
     }
@@ -46,11 +46,13 @@ class GuestController extends Controller
     {
         return view('rapper.createsuccess');
     }
-    public function getUpdateProject($beatname_slug='', $projectname='')
+    public function getUpdateProject( $rapper_id='', $beatname_slug='', $projectname_slug='')
     {
-        $project=Project::join('beat','project.beat_id','=','beat.id')
+        $project=Project::join('rapper','project.rapper_id','=','rapper.id')
+        ->join('beat','project.beat_id','=','beat.id')
+        ->where('rapper.id',$rapper_id)
         ->where('beat.beatname_slug',$beatname_slug)
-        ->where('project.projectname',$projectname)
+        ->where('project.projectname_slug',$projectname_slug)      
         ->first();
         if(!$project)
         {
@@ -60,27 +62,29 @@ class GuestController extends Controller
         return view('rapper.update',compact('project','status'));
         // return dd($project);
     }
-    public function postUpdateProject(Request $request,$beatname_slug='', $projectname='')
+    public function postUpdateProject(Request $request,$rapper_id='', $beatname_slug='', $projectname_slug='')
     {
-        $project=Project::join('beat','project.beat_id','=','beat.id')
+        $project=Project::join('rapper','project.rapper_id','=','rapper.id')
+        ->join('beat','project.beat_id','=','beat.id')
+        ->where('rapper.id',$rapper_id)
         ->where('beat.beatname_slug',$beatname_slug)
-        ->where('project.projectname',$projectname)
+        ->where('project.projectname_slug',$projectname_slug)    
         ->update([
             'projectname'=>$request->input('projectname'),
-            'lyric'=>$request->input('lyric'),
-            'recording'=>'chưa làm',
-            'image_project'=>'chưa làm',
-                
+            'projectname_slug'=>Str::slug($request->input('projectname'), '-'),
+            'lyric'=>$request->input('lyric'),                
         ]);
         return redirect()->route('rapper.createsuccess');
         
        
     }
-    public function deleteProject($beatname_slug='', $projectname='')
+    public function deleteProject( $rapper_id='',$beatname_slug='', $projectname_slug='')
     {
-        $project=Project::join('beat','project.beat_id','=','beat.id')
+        $project=Project::join('rapper','project.rapper_id','=','rapper.id')
+        ->join('beat','project.beat_id','=','beat.id')
+        ->where('rapper.id',$rapper_id)
         ->where('beat.beatname_slug',$beatname_slug)
-        ->where('project.projectname',$projectname)
+        ->where('project.projectname_slug',$projectname_slug)
         ->delete();
         if(!$project)
         {
@@ -108,7 +112,7 @@ class GuestController extends Controller
         {
             $extension = $request->file('image_rapper')->extension();
             $filename = Str::slug($request->beatname, '-') . '.' . $extension;
-            $path = Storage::putFileAs('Rapper', $request->file('image_rapper'), $filename);
+            $path = Storage::putFileAs('Rapper_Image', $request->file('image_rapper'), $filename);
         }
         $orm = Rapper::find($request->id);
         $orm->name = $request->name;
@@ -135,38 +139,40 @@ class GuestController extends Controller
         $lbtorapper=Project::where('rapper_id', $rapper)->get();
         return view('rapper.project', compact('rapper','lbtorapper'));
     }
-    public function getProjectDetail($beatname_slug='', $projectname='')
+    public function getProjectDetail($rapper_id='',$beatname_slug='', $projectname_slug='')
     {
-        $project=Project::join('beat','project.beat_id','=','beat.id')
+        $project=Project::join('rapper','project.rapper_id','=','rapper.id')
+        ->join('beat','project.beat_id','=','beat.id')
+        
         ->where('beat.beatname_slug',$beatname_slug)
-        ->where('project.projectname',$projectname)
+        ->where('project.projectname_slug',$projectname_slug)
+        ->where('rapper.id',$rapper_id)
         ->first();
-
         if(!$project)
         {
             abort(404);
         }
         return view('rapper.projectdetail',compact('project'));
     }
-    // public function getProjectDetail($beatname_slug = '', $projectname = '', $name='')
-    // {
-    //     $project = Project::join('beat', 'project.beat_id', '=', 'beat.id')
-    //         ->join('rapper', 'project.rapper_id', '=', 'rapper.id') // Thêm kết nối với bảng rapper
-    //         ->where('beat.beatname_slug', $beatname_slug)
-    //         ->where('project.projectname', $projectname)
-    //         ->where('rapper.name', $name) // Thêm điều kiện cho id của rapper
-    //         ->first();
-        
-    //     if(!$project)
-    //     {
-    //         abort(404);
-    //     }
-    //     return view('rapper.projectdetail',compact('project'));
-    // }
     public function postLogout()
     {
         return redirect()->route('frontend.home');
     }
-
+    public function getBinhLuan($beat_id)
+    {   
+        $beat=Beat::find($beat_id);
+        return view('frontend.beatdetail',['beat_id'=>$beat_id],compact('beat'));
+    }
+    public function postBinhLuan(Request $request, $beat_id)
+    {
+        Comment::create([
+            'rapper_id'=>Auth::user()->id,
+            'beat_id'=>$beat_id,
+            'noidungbinhluan'=>$request->input('lyric'),
+            'kiemduyet'=>0,
+            'kichhoat'=>1,
+        ]);
+        return redirect()->route('frontend.beatdetail',['']);
+    }
     
 }

@@ -41,7 +41,7 @@
                         <a class="play-btn video-popup" href="{{route('frontend.beat.detail',['typename_slug'=>$tb->typename_slug,'beatname_slug'=>$b->beatname_slug])}}"><i class="fa fa-play"></i> </a>                       
                         <div class="work__item__hover ">
                             <h4>{{$b->beatname}} /{{$b->Musician->stagename}}</h4>
-                            <a href="{{ route('rapper.create', ['beat_id' => $b->id]) }}">Click</i></a>
+                            <a href="{{ route('rapper.create', ['beat_id' => $b->id]) }}"><i class="fa fa-send"></i></a>
                         </div>
                     </div>
                 @endforeach

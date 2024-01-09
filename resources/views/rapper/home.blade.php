@@ -1,12 +1,14 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/nav.jpg')}}">
+<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/navbar.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
+                <h2>Home</h2>
                     <div class="breadcrumb__links">
-                        <a href="{{route('frontend.home')}}">Home</a>
+                    
+                    <a href="{{route('frontend.home')}}">Home</a>
                         <span>Home, but on the right and can't click </span>
                     </div>
                 </div>
@@ -23,7 +25,7 @@
                     <div class="col-lg-6">
                         <div class="hero__text">
                             <span>{{$pr->projectname}}</span>             
-                            <a class="play-btn video-popup primary-btn" href="{{route('rapper.projectdetail',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">See more about us</a>
+                            <a class="play-btn video-popup primary-btn" href="{{route('rapper.projectdetail',['rapper_id'=>Auth::user()->id,'beatname_slug' => $pr->Beat->beatname_slug, 'projectname_slug'=>$pr->projectname])}}">See more about us</a>
                         </div>
                     </div>
                 </div>
@@ -32,6 +34,19 @@
     @endforeach
     </div>
 </section>
+<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/breadcrumb-bg.jpg')}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <div class="breadcrumb__links">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection

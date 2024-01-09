@@ -31,5 +31,9 @@ class Beat extendS Model
     {
       return $this->hasMany(Project::class, 'beat_id', 'id');
     }
+    public function Comment(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'beat_id','id');
+    }
 
 }

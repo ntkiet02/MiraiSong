@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/nav.jpg')}}">
+<div class="breadcrumb-option spad set-bg" data-setbg="{{asset('resources/img/navbar.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -42,13 +42,13 @@
 									<h5 class="d-flex align-items-center mb-3">
 										<div style="width: 500px;"><a>{{$pr->projectname}}</a></div>								
 										<button style="margin-left: 20%;" class="btn btn-outline-primary">
-											<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['beatname_slug'=> $pr->Beat->beatname_slug,'projectname'=> $pr->projectname])}}">View</a>
+											<a class="play-btn video-popup" href="{{route('rapper.projectdetail',['rapper_id'=>Auth::user()->id,'beatname_slug'=>$pr->Beat->beatname_slug,'projectname_slug'=>$pr->projectname_slug])}}">View</a>
 										</button>
 										<button style="margin-left: 1%;" class="btn btn-outline-primary">
-											<a href="{{route('rapper.projectupdate',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Edit</a>
+											<a href="{{route('rapper.projectupdate',['rapper_id'=>Auth::user()->id,'beatname_slug' => $pr->Beat->beatname_slug, 'projectname_slug'=>$pr->projectname_slug])}}">Edit</a>
 										</button>
 										<button style="margin-left: 1%;" class="btn btn-outline-primary">
-											<a href="{{route('rapper.projectdelete',['beatname_slug' => $pr->Beat->beatname_slug, 'projectname'=>$pr->projectname])}}">Delete</a>
+											<a href="{{route('rapper.projectdelete',['rapper_id'=>Auth::user()->id,'beatname_slug' => $pr->Beat->beatname_slug, 'projectname_slug'=>$pr->projectname_slug])}}">Delete</a>
 										</button>
 									</h5>	
 										<img style="height:100px; width:200px;" src="{{env('APP_URL') . '/storage/app/' . $pr->Beat->image_beat}}"></img>				

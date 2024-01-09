@@ -14,37 +14,29 @@ class ProjectController extends Controller
 		return view('admin.project.list', compact('project'));
 	}
 	
-	public function getAdd()
-	{
-		// Đặt hàng bên Front-end
-	}
+
 	
-	public function postAdd(Request $request)
-	{
-		// Xử lý đặt hàng bên Front-end
-	}
+	// public function getUpdate($id)
+	// {
+	// 	$project = Project::find($id);
+	// 	$status = Status::all();
+	// 	return view('admin.project.update', compact('project', 'status'));
+	// }
 	
-	public function getUpdate($id)
-	{
-		$project = Project::find($id);
-		$status = Status::all();
-		return view('admin.project.update', compact('project', 'status'));
-	}
+	// public function postUpdate(Request $request, $id)
+	// {
+	// 	$orm = Project::find($id);
+	// 	$orm->status_id = $request->status_id;
+	// 	$orm->save();
+	// 	// Sau khi sửa thành công thì tự động chuyển về trang danh sách
+	// 	return redirect()->route('admin.project');
+	// }
 	
-	public function postUpdate(Request $request, $id)
-	{
-		$orm = Project::find($id);
-		$orm->status_id = $request->status_id;
-		$orm->save();
-		// Sau khi sửa thành công thì tự động chuyển về trang danh sách
-		return redirect()->route('admin.project');
-	}
-	
-	public function getDelete($id)
-	{
-		$orm = Project::find($id);
-		$orm->delete();	
-        // Sau khi xóa thành công thì tự động chuyển về trang danh sách
-		return redirect()->route('admin.project');
-	}
+	// public function getDelete($id)
+	// {
+	// 	$orm = Project::find($id);
+	// 	$orm->delete();	
+    //     // Sau khi xóa thành công thì tự động chuyển về trang danh sách
+	// 	return redirect()->route('admin.project');
+	// }
 }
